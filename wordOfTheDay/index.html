@@ -1,0 +1,120 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Word of the Day</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: space-between;
+            height: 100vh;
+            margin: 0;
+            background-color: #f4f4f4;
+            text-align: center;
+			padding-top: 50px;
+        }
+
+        #header {
+            display: flex;
+            align-items: center;
+            justify-content: space-between;
+            width: 100%;
+            padding: 20px 100px;
+            box-sizing: border-box;
+            margin-bottom: 100px;
+        }
+
+        #wotd {
+            font-size: 100px;
+            text-align: center;
+            position: fixed;
+            padding-top: 50px;
+            margin-left: 250px;
+            margin-right: auto;
+            font-family: 'SUSE', sans-serif; /* Correct font family usage */
+        }
+
+        #logo {
+            height: 50px;
+            width: 50px;
+            background-color: #ddd;
+            border-radius: 50%;
+        }
+
+        #quote-container {
+            max-width: 300px;
+            font-size: 1.2em;
+            text-align: right;
+            line-height: 1.5;
+            opacity: 1;
+            transition: opacity 1s ease-in-out;
+        }
+
+        #get-word-btn {
+            padding: 10px 20px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-bottom: 20px;
+        }
+
+        #word-container {
+            padding: 20px;
+            border: 2px solid #007bff;
+            border-radius: 10px;
+            background-color: #fff;
+            display: none;
+            cursor: pointer;
+            max-width: 300px;
+            margin-bottom: 100px;
+        }
+
+        footer {
+            padding: 20px;
+            color: black;
+            width: 100%;
+            text-align: center;
+            box-sizing: border-box;
+        }
+
+        footer a {
+            color: blue;
+            margin: 0 10px;
+            text-decoration: none;
+        }
+
+        footer p {
+            margin-top: 10px;
+            font-size: 0.9em;
+        }
+    </style>
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=SUSE:wght@100..800&display=swap" rel="stylesheet">
+</head>
+<body>
+    <div id="header">
+        <img id="logo" src="logo.JPG">
+        <div id="wotd">Word of the Day</div>
+        <div id="quote-container"></div>
+    </div>
+    <button id="get-word-btn">Get Word</button>
+    <div id="word-container"></div>
+    <footer>
+        <div>
+            <a href="https://instagram.com" target="_blank">Instagram</a> |
+            <a href="https://facebook.com" target="_blank">Facebook</a> |
+            <a href="https://twitter.com" target="_blank">Twitter</a>
+        </div>
+        <p>created by the pink Wabbitz</p>
+    </footer>
+    <script src="script.js"></script>
+</body>
+</html>
