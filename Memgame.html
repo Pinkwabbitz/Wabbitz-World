@@ -1,0 +1,346 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>CSS Grid with Hidden Images Game</title>
+    <style>
+        * {
+            font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+        }
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #f0f0f0;
+            position: relative;
+        }
+
+        header {
+            width: 100%;
+            height: 150px;
+            background-color: pink;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px black;
+            margin-bottom: 20px;
+        }
+
+        h1 {
+            margin-bottom: 10px;
+        }
+
+        #timer {
+            font-size: 24px;
+            text-align: center;
+            margin-top: 10px;
+        }
+
+        a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
+
+        a:hover {
+            background-color: #ccc;
+        }
+
+        .fieldset h2, legend {
+            align-items: center;
+            text-align: center;
+        }
+
+        fieldset {
+            border: solid 2px black;
+            border-radius: 5%;
+        }
+
+        /* Grid Container */
+        .grid-container {
+            display: grid;
+            grid-template-columns: repeat(4, 1fr); /* 4 equal columns */
+            grid-template-rows: repeat(4, 1fr); /* 4 equal rows */
+            gap: 10px; /* Adjust gap for smaller screens */
+            width: 100%; /* Full width */
+            max-width: 780px; /* Maximum width */
+            height: auto; /* Auto height based on content */
+            padding: 20px; /* Padding for spacing */
+            box-sizing: border-box;
+            margin-top: 20px;
+            aspect-ratio: 1; /* Ensure the grid container maintains a square aspect ratio */
+        }
+
+        .grid-item {
+            background-color: hotpink;
+            border: 3px solid black;
+            position: relative;
+            overflow: hidden;
+            border-radius: 5%;
+            padding-bottom: 100%; /* Maintain aspect ratio (1:1) */
+        }
+
+        .grid-item img {
+            position: absolute;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 100%;
+            object-fit: cover;
+        }
+
+        .grid-item .hidden-img {
+            display: none;
+        }
+
+        .grid-item .logo-img {
+            display: block;
+            padding-top: 5px;
+        }
+
+        .footer-img {
+            width: 150px;
+            height: auto;
+            padding-top: 10px;
+            border-radius: 50%;
+        }
+
+        footer {
+            width: 100%;
+            background-color: #f0f0f0;
+            border-top: solid 2px black;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+        }
+
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+
+        .bottom a {
+            margin: 5px 0;
+        }
+
+        /* Media Query for small screens */
+        @media (max-width: 600px) {
+            .grid-container {
+                grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
+                grid-template-rows: repeat(4, 1fr); /* 4 rows of equal height */
+                gap: 10px; /* Adjust gap for smaller screens */
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <h1>Wabbitz World</h1>
+    </header>
+
+    <fieldset class="fieldset">
+        <legend>Play The Game</legend>
+        <h2>Three Strikes and you're out!</h2>
+        <h2>Clear the board to win a free hat!</h2>
+    </fieldset>
+
+    <div class="grid-container">
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="jim rohn.png" alt="A">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="outofreach.png" alt="B">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="plot twist.png" alt="C">
+        </div>
+        <div class="grid-item">
+            <img class="png.png" src="png.png" alt="Logo">
+            <img class="hidden-img" src="delusion.png" alt="D">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="2667e135-9d7f-49fe-a9d3-1450791e9f22 2.JPG" alt="E">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="insta post.png" alt="F">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="wabbitz lidz.png" alt="G">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="2667e135-9d7f-49fe-a9d3-1450791e9f22 2.JPG" alt="H">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="jim rohn.png" alt="A">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="outofreach.png" alt="B">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="plot twist.png" alt="C">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="delusion.png" alt="D">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="2667e135-9d7f-49fe-a9d3-1450791e9f22 2.JPG" alt="E">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="insta post.png" alt="F">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="wabbitz lidz.png" alt="G">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="png.png" alt="Logo">
+            <img class="hidden-img" src="2667e135-9d7f-49fe-a9d3-1450791e9f22 2.JPG" alt="H">
+        </div>
+    </div>
+
+    <div id="timer">Time left: 60 seconds</div>
+
+    <!-- Footer -->
+    <footer>
+        <div class="bottom">
+            <a href="index.html" target="_blank">
+                <img src="png.png" class="footer-img" alt="Logo">
+            </a>
+            <a href="index.html" target="_blank">Home</a>
+        </div>
+    </footer>
+
+    <!-- JavaScript -->
+    <script>
+        let selections = [];
+        let strikes = 0;
+        const maxStrikes = 3;
+        let timerInterval; 
+        let startTime; 
+        const gameTimeInSeconds = 60; 
+
+        function startTimer() {
+            if (!timerInterval) {
+                startTime = Date.now(); 
+
+                function updateTimer() {
+                    const elapsedTime = Math.floor((Date.now() - startTime) / 1000); 
+                    const secondsLeft = gameTimeInSeconds - elapsedTime;
+
+                    document.getElementById('timer').innerText = `Time left: ${secondsLeft} seconds`;
+
+                    if (secondsLeft <= 0) {
+                        clearInterval(timerInterval);
+                        alert("Time's up! You lost!");
+                        resetGame();
+                    }
+                }
+
+                updateTimer();
+                timerInterval = setInterval(updateTimer, 1000);
+            }
+        }
+
+        function stopTimer() {
+            clearInterval(timerInterval);
+            timerInterval = null; 
+        }
+
+        const gridItems = document.querySelectorAll('.grid-item');
+
+        gridItems.forEach(item => {
+            item.addEventListener('click', () => {
+                const hiddenImg = item.querySelector('.hidden-img');
+                const logoImg = item.querySelector('.logo-img');
+
+                if (selections.length === 0) {
+                    startTimer();
+                }
+
+                if (hiddenImg && hiddenImg.style.display !== 'block' && selections.length < 2) {
+                    hiddenImg.style.display = 'block';
+                    logoImg.style.display = 'none';
+                    selections.push(hiddenImg);
+
+                    if (selections.length === 2) {
+                        setTimeout(() => {
+                            if (selections[0].alt === selections[1].alt) {
+                                selections.forEach(img => {
+                                    img.parentNode.style.visibility = 'hidden';
+                                });
+
+                                const allHidden = Array.from(gridItems).every(item => item.style.visibility === 'hidden');
+                                if (allHidden) {
+                                    stopTimer();
+                                    alert("You win!");
+                                    playAgain();
+                                }
+                            } else {
+                                strikes++;
+                                if (strikes >= maxStrikes) {
+                                    stopTimer();
+                                    alert("You lost!");
+                                    resetGame();
+                                    return;
+                                }
+                            }
+
+                            selections.forEach(img => {
+                                img.style.display = 'none';
+                                img.parentNode.querySelector('.logo-img').style.display = 'block';
+                            });
+                            selections = [];
+                        }, 500);
+                    }
+                }
+            });
+        });
+
+        function resetGame() {
+            strikes = 0;
+            selections = [];
+            stopTimer(); 
+            gridItems.forEach(item => {
+                item.style.visibility = 'visible';
+                const hiddenImg = item.querySelector('.hidden-img');
+                const logoImg = item.querySelector('.logo-img');
+                hiddenImg.style.display = 'none';
+                logoImg.style.display = 'block';
+            });
+            document.getElementById('timer').innerText = `Time left: ${gameTimeInSeconds} seconds`;
+        }
+
+        function playAgain() {
+            if (confirm("Play again?")) {
+                resetGame();
+            }
+        }
+    </script>
+</body>
+</html>
