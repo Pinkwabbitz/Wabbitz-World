@@ -481,10 +481,11 @@
     wordContainer.style.display = 'block';
     wordContainer.innerHTML = `
         <h2>${word.word}</h2>
+	<img src="speaker.png" class="speaker-icon" onclick="speakWord('${word.word}')" alt="Pronounce">
         <p><em>(${word.ipa})</em></p>
         <p>${word.definition}</p>
         <p><strong>Example:</strong> ${word.sentence}</p>
-        <img src="speaker.png" class="speaker-icon" onclick="speakWord('${word.word}')" alt="Pronounce">
+        
     `;
 
     // Add the word to the displayedWords array
