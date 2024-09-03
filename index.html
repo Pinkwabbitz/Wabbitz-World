@@ -5,21 +5,45 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Word of the Day</title>
     <style>
-   body {
+   
+body {
     font-family: Arial, sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between;
+    justify-content: flex-start;
     margin: 0;
     background-color: #f4f4f4;
     text-align: center;
     padding-bottom: 8rem;
+    position: relative;
+    background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
 }
+
+#content {
+    width: 100%;
+    position: relative;
+    z-index: 2; /* Ensures content stays above the background image */
+}
+
+#background-image {
+    position: absolute;
+    top: 16rem; /* Pushes the background image down below the header */
+    left: 0;
+    width: 100%;
+    height: calc(100% - 16rem); /* Fills the remaining body height */
+    background-image: url('banana.JPG'); /* Path to your background image */
+    background-size: contain; /* Adjusts the image to fit within the container */
+    background-repeat: no-repeat;
+    background-position: center;
+    opacity: 0.4; /* Lower opacity for the background image */
+    z-index: 1; /* Keeps the background behind the content */
+}
+
 
 #header {
     display: flex;
-    height: 18rem;
+    height: 16rem;
     align-items: center;
     justify-content: space-between;
     width: 100%;
@@ -28,6 +52,7 @@
     margin-bottom: 50px;
     background-color: #FDDA0D;
 }
+
 
 #wotd {
     font-size: 5vw; /* Responsive font size */
@@ -38,8 +63,7 @@
     white-space: nowrap;
     overflow: hidden;
     text-overflow: ellipsis;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
-    ;
+	
 }
 
 #logo {
@@ -47,6 +71,8 @@
     width: 100px;
     border-radius: 50%;
     margin-right: 20px;
+	text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+	
 }
 
 #quote-container {
@@ -57,7 +83,7 @@
     opacity: 1;
     transition: opacity 1s ease-in-out;
     color: black;
-    text-shadow: 0 4px 8px rgba(0,0,0,0.5);
+	text-shadow: 0 4px 8px rgba(0,0,0,0.5);
 }
 
 #get-word-btn {
@@ -138,8 +164,7 @@ footer p {
     justify-content: center; /* Center horizontally */
     align-items: center; /* Center vertically */
     height: 100vh; /* Full viewport height */
-    font-size: 9vw; /* Responsive font size */
-    font-weight: 5px;
+    font-size: 5vw; /* Responsive font size */
 }
 
 
@@ -149,8 +174,7 @@ footer p {
     animation: fall-in 1s ease forwards;
     animation-iteration-count: infinite; /* Repeat the animation */
     animation-duration: 10s; /* Total duration for one complete cycle */
-	padding-left: auto;
-	padding-right: auto;
+	padding-left: 20px;
 }
 
 .animated span:nth-child(1) {
@@ -227,7 +251,29 @@ footer p {
     }
 }
 
-   
+   <body>
+    <div id="header">
+        <!-- Header content -->
+    </div>
+
+    <div id="background-image"></div> <!-- Background image layer -->
+
+    <div id="content">
+        <div id="wotd">Word of the Day</div>
+        <button id="get-word-btn">Get Word</button>
+        <div id="word-container">
+            <!-- Word container content -->
+        </div>
+        <div id="open-space">
+            <!-- Open space content -->
+        </div>
+    </div>
+
+    <footer>
+        <!-- Footer content -->
+    </footer>
+</body>
+
 
 
     </style>
@@ -239,28 +285,32 @@ footer p {
     <div id="header">
         <img id="logo" src="trans logo.png">
 		<h1 class="animated">
-    <span>W</span><span>a</span><span>b</span><span>b</span><span>i</span><span>t</span><span>z</span>
+    <span>W</span><span>a</span><span>b</span><span>b</span><span>i</span><span>t</span><span>z</span><span></span>
     <span>W</span><span>o</span><span>r</span><span>l</span><span>d</span>
 </h1>
-
-       	<div id="quote-container"></div>
+	<div id="quote-container"></div>
+		
+		 <div id="background-image"></div> <!-- Background image layer -->
+		
     </div>
+	<div id="content">
 	<div id="wotd">Word of the Day</div>
     <button id="get-word-btn">Get Word</button>
     <div id="word-container">
         <img src="speaker-icon.png" class="speaker-icon" onclick="speakWord()" alt="Pronounce">
     </div>
 	<div id="open-space">
-		<p>Thanks for your support! Make sure to follow us on social media!</p>
+		<p>Thanks for your support! Make sure to follow us and show your support!</p>
 	</div>
+		</div>
     <footer>
         <div>
             <a href="https://instagram.com" target="_blank">Instagram</a> |
             <a href="https://facebook.com" target="_blank">Facebook</a> |
             <a href="https://twitter.com" target="_blank">Twitter</a> |
-	    <a href="Memgame.html" target="_blank">Memory game</a> 
+			<a href="Memgame.html" target="_blank">Memory game</a> 
         </div>
-        <p>Created by the <strong>Pink Wabbitz</strong></p>
+        <p>created by the pink Wabbitz</p>
     </footer>
     <script>
         // Word generation logic
