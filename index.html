@@ -15,9 +15,30 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     text-align: center;
-	padding-bottom: 8rem;
-	
+    padding-bottom: 8rem;
+    background-image: url('32EECECA-B04F-4D63-A047-0A2189026F98.JPG');
+    background-size: 80%; /* Adjust size as needed */
+    background-position: center center;
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    opacity: 0.5; /* Lower opacity for background image */
 }
+
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url('32EECECA-B04F-4D63-A047-0A2189026F98.JPG');
+    background-size: 100%; /* Adjust size here (80% as an example) */
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Adjust opacity here (0.5 as an example) */
+    z-index: -1; /* Ensure it stays behind the content */
+}
+
 
 #header {
     display: flex;
@@ -196,6 +217,13 @@ footer p {
 @media (min-width: 1024px) {
     .animated {
         font-size: 6vw; /* Larger font size for larger screens */
+    }
+}
+		
+		@media (max-width: 768px) {
+    body {
+        background-size: cover; /* Ensure the image covers the area on smaller screens */
+        background-attachment: scroll; /* Disable fixed background attachment on mobile */
     }
 }
 
