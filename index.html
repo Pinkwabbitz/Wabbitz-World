@@ -15,22 +15,25 @@ body {
     margin: 0;
     background-color: #f4f4f4;
     text-align: center;
-	padding-bottom: 8rem;
-	
+    padding-bottom: 8rem;
+    position: relative; /* Needed to position the pseudo-element */
+    overflow: hidden; /* Prevents any overflow from the pseudo-element */
 }
 
-#header {
-    display: flex;
-    height: 16rem;
-    align-items: center;
-    justify-content: space-between;
+body::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
     width: 100%;
-    padding: 20px;
-    box-sizing: border-box;
-    margin-bottom: 50px;
-    background-color: #FDDA0D;
+    height: 100%;
+    background-image: url('32EECECA-B04F-4D63-A047-0A2189026F98.JPG');
+    background-size: 100%; /* Adjust size here (80% as an example) */
+    background-position: center center;
+    background-repeat: no-repeat;
+    opacity: 0.3; /* Adjust opacity here (0.5 as an example) */
+    z-index: -1; /* Ensure it stays behind the content */
 }
-
 
 #wotd {
     font-size: 5vw; /* Responsive font size */
