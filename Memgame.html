@@ -6,35 +6,96 @@
     <title>CSS Grid with Hidden Images Game</title>
     <style>
         * {
-            font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
-        }
-        body {
-            height: 100vh;
-            margin: 0;
-            padding: 0;
-            display: flex;
-            flex-direction: column;
-            justify-content: flex-start;
-            align-items: center;
-            background-color: #f0f0f0;
-            position: relative;
-        }
+    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+}
 
-        header {
-            width: 100%;
-            height: 150px;
-            background-color: #FDDA0D;
-            display: flex;
-            flex-direction: column;
-            justify-content: center;
-            align-items: center;
-            border: solid 2px black;
-            margin-bottom: 20px;
-        }
+body {
+    height: 100vh;
+    margin: 0;
+    padding: 0;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-start;
+    align-items: center;
+    background-color: #f0f0f0;
+    position: relative;
+    background-image: url('rat bljue.JPG'); /* Path to your background image */
+    background-size: cover; /* Cover the entire page */
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating the background image */
+    background-attachment: fixed; /* Fix the background image in place */
+}
 
-        h1 {
-            margin-bottom: 10px;
-        }
+header {
+    width: 100%;
+    height: 150px;
+    background-color: #007bff;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    border: solid 2px black;
+    margin-bottom: 20px;
+    position: relative;
+}
+
+.nav {
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-bottom: 10px;
+	
+}
+
+.nav-items {
+    display: flex;
+    justify-content: space-around;
+    width: 60%; /* Adjust this width as needed */
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.nav-items li {
+    margin: 0 15px;
+}
+
+.nav-items a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    display: block;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.nav-items a:hover {
+    background-color: #ccc;
+}
+
+h1 {
+    margin: 0;
+    color: white;
+    font-size: 4rem;
+	text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+}
+
+header h1 {
+    color: white;
+    font-size: 4rem;
+    padding-bottom: 20px;
+	padding-top: 20px;
+    text-align: left;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+	
+}
+
+/* Additional styles for the rest of your elements remain unchanged */
 
         #timer {
             font-size: 24px;
@@ -59,11 +120,13 @@
         .fieldset h2, legend {
             align-items: center;
             text-align: center;
+			
         }
 
         fieldset {
             border: solid 2px black;
             border-radius: 5%;
+			background-color: white;
         }
 
         /* Grid Container */
@@ -105,8 +168,16 @@
 
         .grid-item .logo-img {
             display: block;
-            padding-top: 5px;
+            max-width: 100%;
+    		max-height: 100%;
+    		object-fit: contain;
         }
+
+		#about {
+			margin-bottom: 20px;
+		}
+
+
 
         .footer-img {
             width: 150px;
@@ -116,21 +187,52 @@
         }
 
         footer {
-            width: 100%;
-            background-color: #f0f0f0;
-            border-top: solid 2px black;
-            bottom: 0;
-            left: 0;
-            display: flex;
-            justify-content: center;
-            padding: 10px;
-        }
+    width: 100%;
+    background-color: #f0f0f0;
+    border-top: solid 2px black;
+    bottom: 0;
+    left: 0;
+    display: flex;
+    justify-content: center;
+    padding: 10px;
+    box-sizing: border-box;
+}
 
-        .bottom {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
+.bottom {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    text-align: center;
+}
+
+.footer-img {
+    width: 150px;
+    height: auto;
+    padding-bottom: 10px; 
+    border-radius: 50%;
+}
+
+.footer-links {
+    display: flex;
+    justify-content: center;
+    gap: 15px; /* Space between links */
+}
+
+.footer-links a {
+    text-decoration: none;
+    color: black;
+    font-size: 18px;
+    padding: 10px;
+    background-color: #f0f0f0;
+    border-radius: 5px;
+}
+
+.footer-links a:hover {
+    background-color: #ccc;
+}
+
+
+        
 
         .bottom a {
             margin: 5px 0;
@@ -144,202 +246,264 @@
                 gap: 10px; /* Adjust gap for smaller screens */
             }
         }
+		
+		#nft {
+			padding: 10px;
+			background-color: #007bff;
+			color: #fff;
+			border: none;
+			border-radius: 5px;
+			font-size: 1.2em;
+			cursor: pointer;
+			margin-top: 20px;
+			margin-bottom: 20px;		
+			
+    	}
+		
     </style>
 </head>
 <body>
-    <header>
-        <h1>Wabbitz World</h1>
-    </header>
+	
+<audio id="backgroundMusic" loop hidden>
+    <source src="15025329_La La_(Original Mix).mp3" type="audio/mpeg">
+    Your browser does not support the audio element.
+</audio>
+
+
+<nav>
+	<h1>Judasaca's World</h1>
+    <div class="nav">
+        <ul class="nav-items">
+            <li><a href="#home">Home</a></li>
+            <li><a href="#about">About</a></li>
+            <li><a href="https://www.instagram.com/madcimiliano/" target="_blank">Music</a></li>
+            <li><a href="https://www.instagram.com/judasaca/" target="_blank">Artist</a></li>
+        </ul>
+    </div>
+    
+</nav>
+
 
     <fieldset class="fieldset">
-        <legend>Play The Game</legend>
+        <legend>Instructions</legend>
+        <h2>60 seconds to clear the board</h2>
         <h2>Three Strikes and you're out!</h2>
     </fieldset>
 
     <div class="grid-container">
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="jim rohn 2.png" alt="A">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat yellow.JPG" alt="A">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="outofreach.png" alt="B">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat teeth.JPG" alt="B">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="plot twist.png" alt="C">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat red.JPG" alt="C">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="delusion.png" alt="D">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat bw.JPG" alt="D">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="2667e135-9d7f-49fe-a9d3-1450791e9f22 2.JPG" alt="E">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat bljue.JPG" alt="E">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="insta post.png" alt="F">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat abstract.JPG" alt="F">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="wabbitz lidz.png" alt="G">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="duck.JPG" alt="G">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="flag.jpg" alt="H">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat color.JPG" alt="H">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="jim rohn 2.png" alt="A">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat yellow.JPG" alt="A">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="outofreach.png" alt="B">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat teeth.JPG" alt="B">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="plot twist.png" alt="C">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat red.JPG" alt="C">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="delusion.png" alt="D">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat bw.JPG" alt="D">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="2667e135-9d7f-49fe-a9d3-1450791e9f22 2.JPG" alt="E">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat bljue.JPG" alt="E">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="insta post.png" alt="F">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat abstract.JPG" alt="F">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="wabbitz lidz.png" alt="G">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="duck.JPG" alt="G">
         </div>
         <div class="grid-item">
-            <img class="logo-img" src="png.png" alt="Logo">
-            <img class="hidden-img" src="flag.jpg" alt="H">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat color.JPG" alt="H">
         </div>
     </div>
 
     <div id="timer">Time left: 60 seconds</div>
-
+	<a href="https://gamma.io/ordinals/collections/bitcoin-donald-the-art-cartel" target="_blank" id="nft">Ordinals Collection</a>
+	<fieldset id="about">
+		<legend>Artits Bio</legend>
+		<h2>Juan Salazar - JUDASACA is a hybrid artist who combines traditional art with digital art through augmented reality. The philosophy behind his art and proposal is that nothing stays the same. He seeks to find new ways of interaction between art and technology and explore interesting proposals for those who come across his work. He shows his reality and how he sees the world today. His work also delves into a deep exploration of the identity of brands and how they reflect on us. Brandalism</h2></fieldset>
     <!-- Footer -->
     <footer>
-        <div class="bottom">
-            <a href="index.html" target="_blank">
-                <img src="png.png" class="footer-img" alt="Logo">
-            </a>
+    <div class="bottom">
+        <a href="index.html" target="_blank">
+            <img src="logo rat.JPG" class="footer-img" alt="Logo">
+        </a>
+        <div class="footer-links">
             <a href="index.html" target="_blank">Home</a>
+            <a href="#about" target="_blank">About</a>
+            <a href="https://www.instagram.com/madcimiliano/" target="_blank">Music</a>
+            <a href="https://gamma.io/ordinals/collections/bitcoin-donald-the-art-cartel" target="_blank">Collection</a>
         </div>
-    </footer>
+    </div>
+</footer>
+
 
     <!-- JavaScript -->
-    <script>
-        let selections = [];
-        let strikes = 0;
-        const maxStrikes = 3;
-        let timerInterval; 
-        let startTime; 
-        const gameTimeInSeconds = 60; 
+   <script>
+    let selections = [];
+    let strikes = 0;
+    const maxStrikes = 3;
+    let timerInterval; 
+    let startTime; 
+    const gameTimeInSeconds = 60; 
 
-        function startTimer() {
-            if (!timerInterval) {
-                startTime = Date.now(); 
+    function startTimer() {
+        if (!timerInterval) {
+            startTime = Date.now(); 
 
-                function updateTimer() {
-                    const elapsedTime = Math.floor((Date.now() - startTime) / 1000); 
-                    const secondsLeft = gameTimeInSeconds - elapsedTime;
+            // Start music when timer starts
+            const music = document.getElementById('backgroundMusic');
+            music.play();
 
-                    document.getElementById('timer').innerText = `Time left: ${secondsLeft} seconds`;
+            function updateTimer() {
+                const elapsedTime = Math.floor((Date.now() - startTime) / 1000); 
+                const secondsLeft = gameTimeInSeconds - elapsedTime;
 
-                    if (secondsLeft <= 0) {
-                        clearInterval(timerInterval);
-                        alert("Time's up! You lost!");
-                        resetGame();
-                    }
+                document.getElementById('timer').innerText = `Time left: ${secondsLeft} seconds`;
+
+                if (secondsLeft <= 0) {
+                    clearInterval(timerInterval);
+                    stopMusic(); // Stop music when time is up
+                    alert("Time's up! You lost!");
+                    resetGame();
                 }
-
-                updateTimer();
-                timerInterval = setInterval(updateTimer, 1000);
             }
+
+            updateTimer();
+            timerInterval = setInterval(updateTimer, 1000);
         }
+    }
 
-        function stopTimer() {
-            clearInterval(timerInterval);
-            timerInterval = null; 
-        }
+    function stopTimer() {
+        clearInterval(timerInterval);
+        timerInterval = null; 
+    }
 
-        const gridItems = document.querySelectorAll('.grid-item');
+    function stopMusic() {
+        const music = document.getElementById('backgroundMusic');
+        music.pause();
+        music.currentTime = 0; // Reset music to the beginning
+    }
 
-        gridItems.forEach(item => {
-            item.addEventListener('click', () => {
-                const hiddenImg = item.querySelector('.hidden-img');
-                const logoImg = item.querySelector('.logo-img');
+    const gridItems = document.querySelectorAll('.grid-item');
 
-                if (selections.length === 0) {
-                    startTimer();
-                }
+    gridItems.forEach(item => {
+        item.addEventListener('click', () => {
+            const hiddenImg = item.querySelector('.hidden-img');
+            const logoImg = item.querySelector('.logo-img');
 
-                if (hiddenImg && hiddenImg.style.display !== 'block' && selections.length < 2) {
-                    hiddenImg.style.display = 'block';
-                    logoImg.style.display = 'none';
-                    selections.push(hiddenImg);
+            if (selections.length === 0) {
+                startTimer();
+            }
 
-                    if (selections.length === 2) {
-                        setTimeout(() => {
-                            if (selections[0].alt === selections[1].alt) {
-                                selections.forEach(img => {
-                                    img.parentNode.style.visibility = 'hidden';
-                                });
+            if (hiddenImg && hiddenImg.style.display !== 'block' && selections.length < 2) {
+                hiddenImg.style.display = 'block';
+                logoImg.style.display = 'none';
+                selections.push(hiddenImg);
 
-                                const allHidden = Array.from(gridItems).every(item => item.style.visibility === 'hidden');
-                                if (allHidden) {
-                                    stopTimer();
-                                    alert("You win!");
-                                    playAgain();
-                                }
-                            } else {
-                                strikes++;
-                                if (strikes >= maxStrikes) {
-                                    stopTimer();
-                                    alert("You lost!");
-                                    resetGame();
-                                    return;
-                                }
-                            }
-
+                if (selections.length === 2) {
+                    setTimeout(() => {
+                        if (selections[0].alt === selections[1].alt) {
                             selections.forEach(img => {
-                                img.style.display = 'none';
-                                img.parentNode.querySelector('.logo-img').style.display = 'block';
+                                img.parentNode.style.visibility = 'hidden';
                             });
-                            selections = [];
-                        }, 500);
-                    }
+
+                            const allHidden = Array.from(gridItems).every(item => item.style.visibility === 'hidden');
+                            if (allHidden) {
+                                stopTimer();
+                                stopMusic(); // Stop music when the game is won
+                                alert("You win!");
+                                playAgain();
+                            }
+                        } else {
+                            strikes++;
+                            if (strikes >= maxStrikes) {
+                                stopTimer();
+                                stopMusic(); // Stop music when the game is lost
+                                alert("You lost!");
+                                resetGame();
+                                return;
+                            }
+                        }
+
+                        selections.forEach(img => {
+                            img.style.display = 'none';
+                            img.parentNode.querySelector('.logo-img').style.display = 'block';
+                        });
+                        selections = [];
+                    }, 500);
                 }
-            });
-        });
-
-        function resetGame() {
-            strikes = 0;
-            selections = [];
-            stopTimer(); 
-            gridItems.forEach(item => {
-                item.style.visibility = 'visible';
-                const hiddenImg = item.querySelector('.hidden-img');
-                const logoImg = item.querySelector('.logo-img');
-                hiddenImg.style.display = 'none';
-                logoImg.style.display = 'block';
-            });
-            document.getElementById('timer').innerText = `Time left: ${gameTimeInSeconds} seconds`;
-        }
-
-        function playAgain() {
-            if (confirm("Play again?")) {
-                resetGame();
             }
+        });
+    });
+
+    function resetGame() {
+        strikes = 0;
+        selections = [];
+        stopTimer(); 
+        stopMusic(); // Ensure the music is stopped when resetting the game
+        gridItems.forEach(item => {
+            item.style.visibility = 'visible';
+            const hiddenImg = item.querySelector('.hidden-img');
+            const logoImg = item.querySelector('.logo-img');
+            hiddenImg.style.display = 'none';
+            logoImg.style.display = 'block';
+        });
+        document.getElementById('timer').innerText = `Time left: ${gameTimeInSeconds} seconds`;
+    }
+
+    function playAgain() {
+        if (confirm("Play again?")) {
+            resetGame();
         }
-    </script>
+    }
+	
+    document.getElementById('playMusic').addEventListener('click', function() {
+        const music = document.getElementById('backgroundMusic');
+        music.play();
+        this.style.display = 'none'; // Hide the button after playing the music
+    });
+</script>
+
 </body>
 </html>
