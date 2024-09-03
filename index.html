@@ -11,35 +11,17 @@ body {
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: flex-start;
+    justify-content: space-between;
     margin: 0;
     background-color: #f4f4f4;
     text-align: center;
-    padding-bottom: 8rem;
-    position: relative;
-    background-color: rgba(255, 255, 255, 0.8); /* White background with opacity */
+	padding-bottom: 8rem;
+	background-image: url('banana.JPG'); /* Path to your background image */
+    background-size: contain; 
+    background-position: center; /* Center the background image */
+    background-repeat: no-repeat; /* Prevent repeating the background image */
+    background-attachment: fixed; /* Fix the background image in place */
 }
-
-#content {
-    width: 100%;
-    position: relative;
-    z-index: 2; /* Ensures content stays above the background image */
-}
-
-#background-image {
-    position: absolute;
-    top: 16rem; /* Pushes the background image down below the header */
-    left: 0;
-    width: 100%;
-    height: calc(100% - 16rem); /* Fills the remaining body height */
-    background-image: url('banana.JPG'); /* Path to your background image */
-    background-size: contain; /* Adjusts the image to fit within the container */
-    background-repeat: no-repeat;
-    background-position: center;
-    opacity: 0.4; /* Lower opacity for the background image */
-    z-index: 1; /* Keeps the background behind the content */
-}
-
 
 #header {
     display: flex;
@@ -289,11 +271,7 @@ footer p {
     <span>W</span><span>o</span><span>r</span><span>l</span><span>d</span>
 </h1>
 	<div id="quote-container"></div>
-		
-		 <div id="background-image"></div> <!-- Background image layer -->
-		
     </div>
-	<div id="content">
 	<div id="wotd">Word of the Day</div>
     <button id="get-word-btn">Get Word</button>
     <div id="word-container">
@@ -302,7 +280,6 @@ footer p {
 	<div id="open-space">
 		<p>Thanks for your support! Make sure to follow us and show your support!</p>
 	</div>
-		</div>
     <footer>
         <div>
             <a href="https://instagram.com" target="_blank">Instagram</a> |
