@@ -6,97 +6,93 @@
     <title>CSS Grid with Hidden Images Game</title>
     <style>
         * {
-    font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
-}
+            font-family: Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif";
+        }
 
-body {
-    height: 100vh;
-    margin: 0;
-    padding: 0;
-    display: flex;
-    flex-direction: column;
-    justify-content: flex-start;
-    align-items: center;
-    background-color: #f0f0f0;
-    position: relative;
-    background-image: url('rat bljue.JPG'); /* Path to your background image */
-    background-size: cover; /* Cover the entire page */
-    background-position: center; /* Center the background image */
-    background-repeat: no-repeat; /* Prevent repeating the background image */
-    background-attachment: fixed; /* Fix the background image in place */
-}
+        body {
+            height: 100vh;
+            margin: 0;
+            padding: 0;
+            display: flex;
+            flex-direction: column;
+            justify-content: flex-start;
+            align-items: center;
+            background-color: #f0f0f0;
+            position: relative;
+            background-image: url('rat bljue.JPG'); /* Path to your background image */
+            background-size: cover; /* Cover the entire page */
+            background-position: center; /* Center the background image */
+            background-repeat: no-repeat; /* Prevent repeating the background image */
+            background-attachment: fixed; /* Fix the background image in place */
+        }
 
-header {
-    width: 100%;
-    height: 150px;
-    background-color: #007bff;
-    display: flex;
-    flex-direction: column;
-    justify-content: center;
-    align-items: center;
-    border: solid 2px black;
-    margin-bottom: 20px;
-    position: relative;
-}
+        header {
+            width: 100%;
+            height: 150px;
+            background-color: #007bff;
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            border: solid 2px black;
+            margin-bottom: 20px;
+            position: relative;
+        }
 
-.nav {
-    width: 100%;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    margin-bottom: 10px;
-	
-}
+        .nav {
+            width: 100%;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            margin-bottom: 10px;
+        }
 
-.nav-items {
-    display: flex;
-    justify-content: space-around;
-    width: 60%; /* Adjust this width as needed */
-    list-style: none;
-    padding: 0;
-    margin: 0;
-}
+        .nav-items {
+            display: flex;
+            justify-content: space-around;
+            width: 60%; /* Adjust this width as needed */
+            list-style: none;
+            padding: 0;
+            margin: 0;
+        }
 
-.nav-items li {
-    margin: 0 15px;
-}
+        .nav-items li {
+            margin: 0 15px;
+        }
 
-.nav-items a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    padding: 10px;
-    display: block;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-}
+        .nav-items a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 10px;
+            display: block;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
 
-.nav-items a:hover {
-    background-color: #ccc;
-}
+        .nav-items a:hover {
+            background-color: #ccc;
+        }
 
-h1 {
-    margin: 0;
-    color: white;
-    font-size: 4rem;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); 
-    padding-left: 20px;
-}
+        h1 {
+            margin: 0;
+            color: white;
+            font-size: 4rem;
+            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5); /* Shadow effect */
+        }
 
-header h1 {
-    color: white;
-    font-size: 4rem;
-    padding-bottom: 20px;
-	padding-top: 20px;
-    text-align: left;
-    position: absolute;
-    top: 50%;
-    left: 50%;
-    transform: translate(-50%, -50%);
-	
-}
-
-/* Additional styles for the rest of your elements remain unchanged */
+        header h1 {
+            color: white;
+            font-size: 4rem;
+            padding-bottom: 20px;
+            padding-top: 20px;
+            text-align: left;
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+            margin-left: 20px;
+        }
 
         #timer {
             font-size: 24px;
@@ -121,13 +117,12 @@ header h1 {
         .fieldset h2, legend {
             align-items: center;
             text-align: center;
-			
         }
 
         fieldset {
             border: solid 2px black;
             border-radius: 5%;
-			background-color: white;
+            background-color: white;
         }
 
         /* Grid Container */
@@ -170,15 +165,13 @@ header h1 {
         .grid-item .logo-img {
             display: block;
             max-width: 100%;
-    		max-height: 100%;
-    		object-fit: contain;
+            max-height: 100%;
+            object-fit: contain;
         }
 
-		#about {
-			margin-bottom: 20px;
-		}
-
-
+        #about {
+            margin-bottom: 20px;
+        }
 
         .footer-img {
             width: 150px;
@@ -188,52 +181,49 @@ header h1 {
         }
 
         footer {
-    width: 100%;
-    background-color: #f0f0f0;
-    border-top: solid 2px black;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    box-sizing: border-box;
-}
+            width: 100%;
+            background-color: #f0f0f0;
+            border-top: solid 2px black;
+            bottom: 0;
+            left: 0;
+            display: flex;
+            justify-content: center;
+            padding: 10px;
+            box-sizing: border-box;
+        }
 
-.bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
+        .bottom {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            text-align: center;
+        }
 
-.footer-img {
-    width: 150px;
-    height: auto;
-    padding-bottom: 10px; 
-    border-radius: 50%;
-}
+        .footer-img {
+            width: 150px;
+            height: auto;
+            padding-bottom: 10px; 
+            border-radius: 50%;
+        }
 
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Space between links */
-}
+        .footer-links {
+            display: flex;
+            justify-content: center;
+            gap: 15px; /* Space between links */
+        }
 
-.footer-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-}
+        .footer-links a {
+            text-decoration: none;
+            color: black;
+            font-size: 18px;
+            padding: 10px;
+            background-color: #f0f0f0;
+            border-radius: 5px;
+        }
 
-.footer-links a:hover {
-    background-color: #ccc;
-}
-
-
-        
+        .footer-links a:hover {
+            background-color: #ccc;
+        }
 
         .bottom a {
             margin: 5px 0;
@@ -247,32 +237,42 @@ header h1 {
                 gap: 10px; /* Adjust gap for smaller screens */
             }
         }
-		
-		#nft {
-			padding: 10px;
-			background-color: #007bff;
-			color: #fff;
-			border: none;
-			border-radius: 5px;
-			font-size: 1.2em;
-			cursor: pointer;
-			margin-top: 20px;
-			margin-bottom: 20px;		
-			
-    	}
-		
+
+        #nft {
+            padding: 10px;
+            background-color: #007bff;
+            color: #fff;
+            border: none;
+            border-radius: 5px;
+            font-size: 1.2em;
+            cursor: pointer;
+            margin-top: 20px;
+            margin-bottom: 20px;     
+        }
+
+        .strike-counter {
+            display: flex;
+            justify-content: center;
+            margin-top: 20px;
+        }
+
+        .strike-img {
+            width: 50px; /* Adjust size as needed */
+            height: auto;
+            margin: 0 5px;
+			border-radius: 50%;
+        }
     </style>
 </head>
 <body>
-	
+    
 <audio id="backgroundMusic" loop hidden>
     <source src="15025329_La La_(Original Mix).mp3" type="audio/mpeg">
     Your browser does not support the audio element.
 </audio>
 
-
 <nav>
-	<h1>Judasaca's World</h1>
+    <h1>Judasaca's World</h1>
     <div class="nav">
         <ul class="nav-items">
             <li><a href="#home">Home</a></li>
@@ -281,33 +281,25 @@ header h1 {
             <li><a href="https://www.instagram.com/judasaca/" target="_blank">Artist</a></li>
         </ul>
     </div>
-    
 </nav>
 
+<fieldset class="fieldset">
+    <legend>Instructions</legend>
+    <h2>60 seconds to clear the board</h2>
+    <h2>4 Strikes and you're out!</h2>
+	<div id="strikeCounter" class="strike-counter">
+    <img src="trans logo.png" alt="Strike 1" class="strike-img">
+    <img src="trans logo.png" alt="Strike 2" class="strike-img">
+    <img src="trans logo.png" alt="Strike 3" class="strike-img">
+    <img src="trans logo.png" alt="Strike 4" class="strike-img">
+</div>
+</fieldset>
 
-    <fieldset class="fieldset">
-        <legend>Instructions</legend>
-        <h2>60 seconds to clear the board</h2>
-        <h2>4 Strikes and you're out!</h2>
-    </fieldset>
-
-    <div class="grid-container">
+<div class="grid-container">
         <div class="grid-item">
             <img class="logo-img" src="logo rat.JPG" alt="Logo">
             <img class="hidden-img" src="rat yellow.JPG" alt="A">
         </div>
-	    <div class="grid-item">
-            <img class="logo-img" src="logo rat.JPG" alt="Logo">
-            <img class="hidden-img" src="duck.JPG" alt="G">
-        </div>
-        <div class="grid-item">
-            <img class="logo-img" src="logo rat.JPG" alt="Logo">
-            <img class="hidden-img" src="rat teeth.JPG" alt="B">
-        </div>
-        <div class="grid-item">
-            <img class="logo-img" src="logo rat.JPG" alt="Logo">
-            <img class="hidden-img" src="rat red.JPG" alt="C">
-        </div>
         <div class="grid-item">
             <img class="logo-img" src="logo rat.JPG" alt="Logo">
             <img class="hidden-img" src="rat teeth.JPG" alt="B">
@@ -331,18 +323,6 @@ header h1 {
         <div class="grid-item">
             <img class="logo-img" src="logo rat.JPG" alt="Logo">
             <img class="hidden-img" src="duck.JPG" alt="G">
-        </div>
-	     <div class="grid-item">
-            <img class="logo-img" src="logo rat.JPG" alt="Logo">
-            <img class="hidden-img" src="rat bw.JPG" alt="D">
-        </div>
-        <div class="grid-item">
-            <img class="logo-img" src="logo rat.JPG" alt="Logo">
-            <img class="hidden-img" src="rat bljue.JPG" alt="E">
-        </div>
-        <div class="grid-item">
-            <img class="logo-img" src="logo rat.JPG" alt="Logo">
-            <img class="hidden-img" src="rat abstract.JPG" alt="F">
         </div>
         <div class="grid-item">
             <img class="logo-img" src="logo rat.JPG" alt="Logo">
@@ -351,6 +331,30 @@ header h1 {
         <div class="grid-item">
             <img class="logo-img" src="logo rat.JPG" alt="Logo">
             <img class="hidden-img" src="rat yellow.JPG" alt="A">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat teeth.JPG" alt="B">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat red.JPG" alt="C">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat bw.JPG" alt="D">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat bljue.JPG" alt="E">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="rat abstract.JPG" alt="F">
+        </div>
+        <div class="grid-item">
+            <img class="logo-img" src="logo rat.JPG" alt="Logo">
+            <img class="hidden-img" src="duck.JPG" alt="G">
         </div>
         <div class="grid-item">
             <img class="logo-img" src="logo rat.JPG" alt="Logo">
@@ -358,83 +362,72 @@ header h1 {
         </div>
     </div>
 
-    <div id="timer">Time left: 60 seconds</div>
-	<a href="https://gamma.io/ordinals/collections/bitcoin-donald-the-art-cartel" target="_blank" id="nft">Ordinals Collection</a>
-	<fieldset id="about">
-		<legend>Artits Bio</legend>
-		<h2>Juan Salazar - JUDASACA is a hybrid artist who combines traditional art with digital art through augmented reality. The philosophy behind his art and proposal is that nothing stays the same. He seeks to find new ways of interaction between art and technology and explore interesting proposals for those who come across his work. He shows his reality and how he sees the world today. His work also delves into a deep exploration of the identity of brands and how they reflect on us. Brandalism</h2></fieldset>
-    <!-- Footer -->
-    <footer>
+<button id="nft">Click here for NFT information</button>
+
+<footer>
     <div class="bottom">
-        <a href="index.html" target="_blank">
-            <img src="logo rat.JPG" class="footer-img" alt="Logo">
-        </a>
+        <img class="footer-img" src="logo rat.JPG" alt="Footer Logo">
         <div class="footer-links">
-            <a href="index.html" target="_blank">Home</a>
-            <a href="#about" target="_blank">About</a>
+            <a href="#home">Home</a>
+            <a href="#about">About</a>
             <a href="https://www.instagram.com/wermadian/" target="_blank">Music</a>
-            <a href="https://gamma.io/ordinals/collections/bitcoin-donald-the-art-cartel" target="_blank">Collection</a>
+            <a href="https://www.instagram.com/judasaca/" target="_blank">Artist</a>
         </div>
     </div>
 </footer>
 
-
-    <!-- JavaScript -->
-   <script>
+<script>
     let selections = [];
     let strikes = 0;
     const maxStrikes = 4;
-    let timerInterval; 
-    let startTime; 
-    const gameTimeInSeconds = 60; 
+    const backgroundMusic = document.getElementById('backgroundMusic');
 
     function startTimer() {
-        if (!timerInterval) {
-            startTime = Date.now(); 
-
-            // Start music when timer starts
-            const music = document.getElementById('backgroundMusic');
-            music.play();
-
-            function updateTimer() {
-                const elapsedTime = Math.floor((Date.now() - startTime) / 1000); 
-                const secondsLeft = gameTimeInSeconds - elapsedTime;
-
-                document.getElementById('timer').innerText = `Time left: ${secondsLeft} seconds`;
-
-                if (secondsLeft <= 0) {
-                    clearInterval(timerInterval);
-                    stopMusic(); // Stop music when time is up
-                    alert("Time's up! You lost!");
-                    resetGame();
-                }
-            }
-
-            updateTimer();
-            timerInterval = setInterval(updateTimer, 1000);
-        }
+        // Implement your timer logic here
+        startMusic(); // Start music when the timer starts
     }
 
     function stopTimer() {
-        clearInterval(timerInterval);
-        timerInterval = null; 
+        // Implement your timer stopping logic here
+    }
+
+    function startMusic() {
+        backgroundMusic.play();
     }
 
     function stopMusic() {
-        const music = document.getElementById('backgroundMusic');
-        music.pause();
-        music.currentTime = 0; // Reset music to the beginning
+        backgroundMusic.pause();
+        backgroundMusic.currentTime = 0; // Reset music to start
+    }
+
+    function resetGame() {
+        // Implement your game reset logic here
+        strikes = 0;
+        updateStrikeCounter();
+        // Possibly reset the grid items visibility
+        const gridItems = document.querySelectorAll('.grid-item');
+        gridItems.forEach(item => {
+            item.style.visibility = 'visible';
+            item.querySelector('.hidden-img').style.display = 'none';
+            item.querySelector('.logo-img').style.display = 'block';
+        });
+    }
+
+    function updateStrikeCounter() {
+        const strikeImages = document.querySelectorAll('.strike-img');
+        strikeImages.forEach((img, index) => {
+            img.style.display = index < strikes ? 'none' : 'block';
+        });
     }
 
     const gridItems = document.querySelectorAll('.grid-item');
-
     gridItems.forEach(item => {
         item.addEventListener('click', () => {
             const hiddenImg = item.querySelector('.hidden-img');
             const logoImg = item.querySelector('.logo-img');
 
             if (selections.length === 0) {
-                startTimer();
+                startTimer(); // Start the timer and music when the first item is clicked
             }
 
             if (hiddenImg && hiddenImg.style.display !== 'block' && selections.length < 2) {
@@ -454,10 +447,12 @@ header h1 {
                                 stopTimer();
                                 stopMusic(); // Stop music when the game is won
                                 alert("You win!");
-                                playAgain();
+                                // Optionally reset the game or prompt for a new game
+                                resetGame();
                             }
                         } else {
                             strikes++;
+                            updateStrikeCounter(); // Update strike counter display
                             if (strikes >= maxStrikes) {
                                 stopTimer();
                                 stopMusic(); // Stop music when the game is lost
@@ -477,34 +472,8 @@ header h1 {
             }
         });
     });
-
-    function resetGame() {
-        strikes = 0;
-        selections = [];
-        stopTimer(); 
-        stopMusic(); // Ensure the music is stopped when resetting the game
-        gridItems.forEach(item => {
-            item.style.visibility = 'visible';
-            const hiddenImg = item.querySelector('.hidden-img');
-            const logoImg = item.querySelector('.logo-img');
-            hiddenImg.style.display = 'none';
-            logoImg.style.display = 'block';
-        });
-        document.getElementById('timer').innerText = `Time left: ${gameTimeInSeconds} seconds`;
-    }
-
-    function playAgain() {
-        if (confirm("Play again?")) {
-            resetGame();
-        }
-    }
-	
-    document.getElementById('playMusic').addEventListener('click', function() {
-        const music = document.getElementById('backgroundMusic');
-        music.play();
-        this.style.display = 'none'; // Hide the button after playing the music
-    });
 </script>
+
 
 </body>
 </html>
