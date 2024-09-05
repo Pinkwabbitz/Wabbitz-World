@@ -96,7 +96,7 @@ header h1 {
 	
 }
 
-/* Additional styles for the rest of your elements remain unchanged */
+/* Additional styles for the rest of your elements */
 
         #timer {
             font-size: 24px;
@@ -146,7 +146,7 @@ header h1 {
         }
 
         .grid-item {
-            background-color: hotpink;
+            background-color: white;
             border: 3px solid black;
             position: relative;
             overflow: hidden;
@@ -188,58 +188,56 @@ header h1 {
         }
 
         footer {
-    width: 100%;
-    background-color: #f0f0f0;
-    border-top: solid 2px black;
-    bottom: 0;
-    left: 0;
-    display: flex;
-    justify-content: center;
-    padding: 10px;
-    box-sizing: border-box;
+	    width: 100%;
+	    background-color: #f0f0f0;
+	    border-top: solid 2px black;
+	    bottom: 0;
+	    left: 0;
+	    display: flex;
+	    justify-content: center;
+	    padding: 10px;
+	    box-sizing: border-box;
 }
 
-.bottom {
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    text-align: center;
-}
-
-.footer-img {
-    width: 150px;
-    height: auto;
-    padding-bottom: 10px; 
-    border-radius: 50%;
-}
-
-.footer-links {
-    display: flex;
-    justify-content: center;
-    gap: 15px; /* Space between links */
-}
-
-.footer-links a {
-    text-decoration: none;
-    color: black;
-    font-size: 18px;
-    padding: 10px;
-    background-color: #f0f0f0;
-    border-radius: 5px;
-}
-
-.footer-links a:hover {
-    background-color: #ccc;
-}
-
-
-        
-
-        .bottom a {
+	.bottom {
+	    display: flex;
+	    flex-direction: column;
+	    align-items: center;
+	    text-align: center;
+	}
+	
+	.footer-img {
+	    width: 150px;
+	    height: auto;
+	    padding-bottom: 10px; 
+	    border-radius: 50%;
+	}
+	
+	.footer-links {
+	    display: flex;
+	    justify-content: center;
+	    gap: 15px; /* Space between links */
+	}
+	
+	.footer-links a {
+	    text-decoration: none;
+	    color: black;
+	    font-size: 18px;
+	    padding: 10px;
+	    background-color: #f0f0f0;
+	    border-radius: 5px;
+	}
+	
+	.footer-links a:hover {
+	    background-color: #ccc;
+	}
+	
+	.bottom a {
             margin: 5px 0;
         }
 
         /* Media Query for small screens */
+	    
         @media (max-width: 600px) {
             .grid-container {
                 grid-template-columns: repeat(4, 1fr); /* 4 columns of equal width */
