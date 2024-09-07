@@ -1,7 +1,20 @@
 @charset "UTF-8";
 
+.protest-guerrilla-regular {
+  font-family: "Protest Guerrilla", sans-serif;
+  font-weight: 400;
+  font-style: normal;
+}
+
+.suse-  {
+  font-family: "SUSE", sans-serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 body {
-    font-family: Arial, sans-serif;
+    font-family: "Protest Guerrilla", 'SUSE', sans-serif;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -13,6 +26,7 @@ body {
     position: relative;
 }
 
+
 body::before {
     content: "";
     position: absolute;
@@ -20,8 +34,8 @@ body::before {
     left: 0;
     width: 100%;
     height: 100%;
-    background-image: url('32EECECA-B04F-4D63-A047-0A2189026F98.JPG');
-    background-size: cover; /* Adjusted to cover the whole area */
+    background-image: url('bbunny.JPG');
+    background-size: cover; 
     background-position: center;
     background-repeat: no-repeat;
     opacity: 0.3;
@@ -37,12 +51,13 @@ body::before {
     padding: 20px;
     box-sizing: border-box;
     margin-bottom: 50px;
+    
 }
 
 #wotd {
     font-size: 5vw;
     margin: 0;
-    font-family: 'SUSE', sans-serif;
+    font-family: "Protest Guerrilla", 'SUSE', sans-serif;
     flex-grow: 1;
     white-space: nowrap;
     overflow: hidden;
@@ -65,11 +80,13 @@ body::before {
     color: black;
     text-shadow: 0 4px 8px rgba(0,0,0,0.5);
     transition: opacity 1s ease-in-out;
+	font-family: 'SUSE', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 
 #get-word-btn {
     padding: 10px 20px;
     background-color: #007bff;
+	font-family: 'SUSE', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
     color: #fff;
     border: none;
     border-radius: 5px;
@@ -105,6 +122,12 @@ body::before {
     padding-bottom: 20px;
 }
 
+#open-space p {
+	font-family: "SUSE", "Protest Guerrilla";
+	font-size: 40px;
+	font-weight: 400;
+}
+
 footer {
     position: fixed;
     bottom: 0;
@@ -115,6 +138,7 @@ footer {
     text-align: center;
     box-sizing: border-box;
     background-color: white;
+	
 }
 
 footer a {
@@ -191,4 +215,14 @@ footer p {
     #word-container {
         max-width: 100%;
     }
+	
+	#open-space {
+		margin-bottom: 1rem;
+	}
+	
+	#open-space p {
+		font-size: 2em;
+		
+	}
+	
 }
