@@ -384,6 +384,8 @@
 	<div id="timer">Time left: 60 seconds</div>
 <div id="strike-counter">Strikes: 0 / 4</div>
 	<button id="startGame">Start Game</button>
+	<div id="level-counter">Level: 1</div>
+
 	</fieldset>
 
 <div class="grid-container">
@@ -472,181 +474,202 @@
 
 <script>
     let selections = [];
-    let strikes = 0;
-    const maxStrikes = 4;
-    let timerInterval;
-    let startTime;
-    const gameTimeInSeconds = 60;
-    let gameStarted = false; // Flag to track if the game has started
+let strikes = 0;
+let level = 1; // Initialize level counter
+const maxStrikes = 4;
+const maxAttemptsPerLevel = 3; // Maximum attempts per level
+let levelAttempts = 0; // Number of attempts for the current level
+let timerInterval;
+let startTime;
+const gameTimeInSeconds = 60;
+let gameStarted = false; // Flag to track if the game has started
 
-    const gridItems = document.querySelectorAll('.grid-item');
+const gridItems = document.querySelectorAll('.grid-item');
 
-    function startTimer() {
-        if (!timerInterval) {
-            startTime = Date.now();
+function startTimer() {
+    if (!timerInterval) {
+        startTime = Date.now();
 
-            // Start music when the timer starts
-            const music = document.getElementById('backgroundMusic');
-            music.play();
-
-            function updateTimer() {
-                const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
-                const secondsLeft = gameTimeInSeconds - elapsedTime;
-
-                document.getElementById('timer').innerText = `Time left: ${secondsLeft} seconds`;
-
-                if (secondsLeft <= 0) {
-                    clearInterval(timerInterval);
-                    stopMusic(); // Stop music when time is up
-                    alert("Time's up! You lost!");
-                    resetGame();
-                }
-            }
-
-            updateTimer();
-            timerInterval = setInterval(updateTimer, 1000);
-        }
-    }
-
-    function stopTimer() {
-        clearInterval(timerInterval);
-        timerInterval = null;
-    }
-
-    function stopMusic() {
-        const music = document.getElementById('backgroundMusic');
-        music.pause();
-        music.currentTime = 0; // Reset music to the beginning
-    }
-
-    function revealAllFor5Seconds() {
-        // Show all hidden images for 5 seconds
-        gridItems.forEach(item => {
-            const hiddenImg = item.querySelector('.hidden-img');
-            const logoImg = item.querySelector('.logo-img');
-            hiddenImg.style.display = 'block';  // Reveal hidden image
-            logoImg.style.display = 'none';     // Hide logo image
-        });
-
-        setTimeout(() => {
-            // After 5 seconds, hide the images and allow the game to start
-            gridItems.forEach(item => {
-                const hiddenImg = item.querySelector('.hidden-img');
-                const logoImg = item.querySelector('.logo-img');
-                hiddenImg.style.display = 'none';  // Hide the image again
-                logoImg.style.display = 'block';   // Show logo again
-            });
-            gameStarted = true;  // Enable game play
-            startTimer();        // Start the game timer
-        }, 3000);
-    }
-
-    function shuffleImages() {
-        const images = Array.from(document.querySelectorAll('.hidden-img'));
-        const imageSrcs = images.map(img => img.src);
-        shuffleArray(imageSrcs);
-
-        images.forEach((img, index) => {
-            img.src = imageSrcs[index];
-        });
-    }
-
-    function shuffleArray(array) {
-        for (let i = array.length - 1; i > 0; i--) {
-            const j = Math.floor(Math.random() * (i + 1));
-            [array[i], array[j]] = [array[j], array[i]];
-        }
-    }
-
-    function resetGame() {
-        strikes = 0;
-        selections = [];
-        stopTimer();
-        stopMusic();
-        gameStarted = false; // Game will restart only after clicking Start Game
-
-        // Reset all grid items
-        gridItems.forEach(item => {
-            item.style.visibility = 'visible';
-            const hiddenImg = item.querySelector('.hidden-img');
-            const logoImg = item.querySelector('.logo-img');
-            hiddenImg.style.display = 'none';
-            logoImg.style.display = 'block';
-        });
-
-        document.getElementById('timer').innerText = `Time left: ${gameTimeInSeconds} seconds`;
-        document.getElementById('strike-counter').innerText = `Strikes: 0 / 4`;
-    }
-
-    function playAgain() {
-        if (confirm("Play again?")) {
-            shuffleImages(); // Shuffle the images after the game is won
-            resetGame();
-        }
-    }
-
-    // Handle grid item clicks for the game
-    gridItems.forEach(item => {
-        item.addEventListener('click', () => {
-            if (!gameStarted) return;  // Prevent any actions before the game has started
-
-            const hiddenImg = item.querySelector('.hidden-img');
-            const logoImg = item.querySelector('.logo-img');
-
-            if (hiddenImg && hiddenImg.style.display !== 'block' && selections.length < 2) {
-                hiddenImg.style.display = 'block';
-                logoImg.style.display = 'none';
-                selections.push(hiddenImg);
-
-                if (selections.length === 2) {
-                    setTimeout(() => {
-                        if (selections[0].src === selections[1].src) {
-                            selections.forEach(img => {
-                                img.parentNode.style.visibility = 'hidden';  // Hide matched items
-                            });
-
-                            const allHidden = Array.from(gridItems).every(item => item.style.visibility === 'hidden');
-                            if (allHidden) {
-                                stopTimer();
-                                stopMusic();
-                                alert("You win!");
-                                playAgain();
-                            }
-                        } else {
-                            strikes++;
-                            document.getElementById('strike-counter').innerText = `Strikes: ${strikes} / 4`;
-
-                            if (strikes >= maxStrikes) {
-                                stopTimer();
-                                stopMusic();
-                                alert("You lost!");
-                                resetGame();
-                                return;
-                            }
-                        }
-
-                        selections.forEach(img => {
-                            img.style.display = 'none';
-                            img.parentNode.querySelector('.logo-img').style.display = 'block';
-                        });
-                        selections = [];
-                    }, 500);
-                }
-            }
-        });
-    });
-
-    // Handle "Start Game" button click
-    document.getElementById('startGame').addEventListener('click', function() {
-        resetGame();  // Reset the game before starting
-        revealAllFor5Seconds();  // Show hidden images for 5 seconds, then start the game
-    });
-
-    document.getElementById('playMusic').addEventListener('click', function() {
+        // Start music when the timer starts
         const music = document.getElementById('backgroundMusic');
         music.play();
-        this.style.display = 'none'; // Hide the button after playing the music
+
+        function updateTimer() {
+            const elapsedTime = Math.floor((Date.now() - startTime) / 1000);
+            const secondsLeft = gameTimeInSeconds - elapsedTime;
+
+            document.getElementById('timer').innerText = `Time left: ${secondsLeft} seconds`;
+
+            if (secondsLeft <= 0) {
+                clearInterval(timerInterval);
+                stopMusic(); // Stop music when time is up
+                alert("Time's up! You lost!");
+                handleFailure(); // Handle failure
+            }
+        }
+
+        updateTimer();
+        timerInterval = setInterval(updateTimer, 1000);
+    }
+}
+
+function stopTimer() {
+    clearInterval(timerInterval);
+    timerInterval = null;
+}
+
+function stopMusic() {
+    const music = document.getElementById('backgroundMusic');
+    music.pause();
+    music.currentTime = 0; // Reset music to the beginning
+}
+
+function revealAllFor5Seconds() {
+    // Show all hidden images for 5 seconds
+    gridItems.forEach(item => {
+        const hiddenImg = item.querySelector('.hidden-img');
+        const logoImg = item.querySelector('.logo-img');
+        hiddenImg.style.display = 'block';  // Reveal hidden image
+        logoImg.style.display = 'none';     // Hide logo image
     });
+
+    setTimeout(() => {
+        // After 5 seconds, hide the images and allow the game to start
+        gridItems.forEach(item => {
+            const hiddenImg = item.querySelector('.hidden-img');
+            const logoImg = item.querySelector('.logo-img');
+            hiddenImg.style.display = 'none';  // Hide the image again
+            logoImg.style.display = 'block';   // Show logo again
+        });
+        gameStarted = true;  // Enable game play
+        startTimer();        // Start the game timer
+    }, 3000);
+}
+
+function shuffleImages() {
+    const images = Array.from(document.querySelectorAll('.hidden-img'));
+    const imageSrcs = images.map(img => img.src);
+    shuffleArray(imageSrcs);
+
+    images.forEach((img, index) => {
+        img.src = imageSrcs[index];
+    });
+}
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
+
+function resetGame() {
+    strikes = 0;
+    selections = [];
+    stopTimer();
+    stopMusic();
+    gameStarted = false; // Game will restart only after clicking Start Game
+
+    // Reset all grid items
+    gridItems.forEach(item => {
+        item.style.visibility = 'visible';
+        const hiddenImg = item.querySelector('.hidden-img');
+        const logoImg = item.querySelector('.logo-img');
+        hiddenImg.style.display = 'none';
+        logoImg.style.display = 'block';
+    });
+
+    document.getElementById('timer').innerText = `Time left: ${gameTimeInSeconds} seconds`;
+    document.getElementById('strike-counter').innerText = `Strikes: ${strikes} / ${maxStrikes}`;
+}
+
+function handleFailure() {
+    levelAttempts++; // Increment level attempts
+    if (levelAttempts >= maxAttemptsPerLevel) {
+        levelAttempts = 0; // Reset level attempts
+        alert(`You reached level ${level}. Give it another GO!`);
+        level = 1; // Reset level counter
+        document.getElementById('level-counter').innerText = `Level: ${level}`;
+        resetGame(); // Reset the game
+    } else {
+        resetGame(); // Reset the game but keep the current level
+        document.getElementById('level-counter').innerText = `Level: ${level}`;
+    }
+}
+
+
+function playAgain() {
+    if (confirm("Play again?")) {
+        shuffleImages(); // Shuffle the images after the game is won
+        resetGame();
+        level++; // Increment level counter after winning
+        document.getElementById('level-counter').innerText = `Level: ${level}`;
+    }
+}
+
+// Handle grid item clicks for the game
+gridItems.forEach(item => {
+    item.addEventListener('click', () => {
+        if (!gameStarted) return;  // Prevent any actions before the game has started
+
+        const hiddenImg = item.querySelector('.hidden-img');
+        const logoImg = item.querySelector('.logo-img');
+
+        if (hiddenImg && hiddenImg.style.display !== 'block' && selections.length < 2) {
+            hiddenImg.style.display = 'block';
+            logoImg.style.display = 'none';
+            selections.push(hiddenImg);
+
+            if (selections.length === 2) {
+                setTimeout(() => {
+                    if (selections[0].src === selections[1].src) {
+                        selections.forEach(img => {
+                            img.parentNode.style.visibility = 'hidden';  // Hide matched items
+                        });
+
+                        const allHidden = Array.from(gridItems).every(item => item.style.visibility === 'hidden');
+                        if (allHidden) {
+                            stopTimer();
+                            stopMusic();
+                            alert("You win!");
+                            playAgain();
+                        }
+                    } else {
+                        strikes++;
+                        document.getElementById('strike-counter').innerText = `Strikes: ${strikes} / ${maxStrikes}`;
+
+                        if (strikes >= maxStrikes) {
+                            stopTimer();
+                            stopMusic();
+                            alert("You lost!");
+                            handleFailure(); // Handle failure
+                            return;
+                        }
+                    }
+
+                    selections.forEach(img => {
+                        img.style.display = 'none';
+                        img.parentNode.querySelector('.logo-img').style.display = 'block';
+                    });
+                    selections = [];
+                }, 500);
+            }
+        }
+    });
+});
+
+// Handle "Start Game" button click
+document.getElementById('startGame').addEventListener('click', function() {
+    resetGame();  // Reset the game before starting
+    revealAllFor5Seconds();  // Show hidden images for 5 seconds, then start the game
+});
+
+document.getElementById('playMusic').addEventListener('click', function() {
+    const music = document.getElementById('backgroundMusic');
+    music.play();
+    this.style.display = 'none'; // Hide the button after playing the music
+});
+
 </script>
 
 
