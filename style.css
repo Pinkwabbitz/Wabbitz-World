@@ -81,7 +81,7 @@ body::before {
     color: black;
     text-shadow: 0 4px 8px rgba(0,0,0,0.5);
     transition: opacity 1s ease-in-out;
-	font-family: 'SUSE', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
+    font-family: 'SUSE', Cambria, "Hoefler Text", "Liberation Serif", Times, "Times New Roman", "serif";
 }
 
 #get-word-btn {
@@ -193,6 +193,10 @@ footer p {
         align-items: center;
     }
 
+#header h1 {
+	padding-right: 1em;
+}
+
     #wotd {
         font-size: 10vw;
         margin: 10px 0;
@@ -200,7 +204,7 @@ footer p {
 
     #logo {
         margin: 0 0 10px 0;
-		padding-right: 10px;
+	padding-right: 10px;
     }
 
     #quote-container {
