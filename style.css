@@ -157,6 +157,7 @@ footer p {
     display: flex;
     align-items: center;
     margin: 20px;
+    margin-top: 20px;
 }
 
 .bio-image {
