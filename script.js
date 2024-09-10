@@ -1,11 +1,10 @@
-// JavaScript Document
-        // Word generation logic
-        document.getElementById('get-word-btn').addEventListener('click', generateWord);
-		
 
-        let displayedWords = []; // Array to track displayed words
+// Word generation logic
+document.getElementById('get-word-btn').addEventListener('click', generateWord);
 
-		function generateWord() {
+let displayedWords = []; // Array to track displayed words
+
+	function generateWord() {
     const words = [
 				{ word: 'Ephemeral', ipa: 'e·phem·er·al', definition: 'lasting for a very short time.', sentence: 'The beauty of the sunset was ephemeral, fading within minutes.' },
 				{ word: 'Serendipity', ipa: 'se·ren·dip·i·ty', definition: 'the occurrence and development of events by chance in a happy or beneficial way.', sentence: 'It was serendipity that led them to find the lost treasure.' },
@@ -60,8 +59,6 @@
 		];
 
 
-    
-
     // Check if the word limit has been reached
     if (displayedWords.length >= 10) {
         alert("Try using your words today in a sentence and come back tomorrow for more!");
@@ -80,7 +77,6 @@
         <p><em>(${word.ipa})</em></p>
         <p>${word.definition}</p>
         <p><strong>Example:</strong> ${word.sentence}</p>
-        
     `;
 
     // Add the word to the displayedWords array
@@ -97,19 +93,32 @@ function speakWord(word) {
 }
 (speakWord)
 
+
+// Function to reset words at midnight
+function resetWordsAtMidnight() {
+    const currentDate = new Date().toDateString(); // Get the current date as a string
+    const lastResetDate = localStorage.getItem('lastResetDate'); // Retrieve the last reset date from local storage
+
+    if (lastResetDate !== currentDate) {
+        // If the date has changed, reset the displayed words
+        displayedWords = [];
+        localStorage.setItem('displayedWords', JSON.stringify(displayedWords)); // Clear displayed words
+        localStorage.setItem('lastResetDate', currentDate); // Update the last reset date in local storage
+        console.log('Words have been reset at midnight.');
+    }
+}
+
 // Load displayed words from local storage on page load
 window.onload = function() {
     const savedWords = JSON.parse(localStorage.getItem('displayedWords'));
     if (savedWords) {
         displayedWords = savedWords;
     }
+    resetWordsAtMidnight(); // Check if words need to be reset
 };
-   
-       
 
-		
-        // Quote rotation logic
-		const quotes = [
+// Quote rotation logic
+const quotes = [
 			'Life is what happens when you’re busy making other plans.',
 			'The only limit to our realization of tomorrow is our doubts of today.',
 			'Success is not final, failure is not fatal: It is the courage to continue that counts.',
@@ -131,41 +140,25 @@ window.onload = function() {
 			'Believe you can and you are halfway there. — Theodore Roosevelt',
 			'It does not matter how slowly you go as long as you do not stop. — Confucius',
 			'The best way to predict the future is to create it. — Peter Drucker',
-			'Your limitation—it is only your imagination.',
-			'Push yourself, because no one else is going to do it for you.',
-			'Great things never come from comfort zones.',
+			'Your limitation—it is only your imagination. — Unknown',
+			'Push yourself, because no one else is going to do it for you. — Unknown',
+			'Great things never come from comfort zones. — Unknown',
 			'Dream it. Wish it. Do it. — Unknown',
-			'Success doesn’t just find you. You have to go out and get it.',
-			'The harder you work for something, the greater you will feel when you achieve it.',
-			'Dream bigger. Do bigger.',
-			'Don’t stop when you’re tired. Stop when you’re done.',
-			'Wake up with determination. Go to bed with satisfaction.',
-			'Do something today that your future self will thank you for.',
-			'Little things make big days. Great things take time. Be patient.',
-			'It is going to be hard, but hard does not mean impossible.',
-			'Push yourself because no one else is going to do it for you.',
-			'Great things never come from comfort zones.',
-			'Dream it. Believe it. Build it.',
-			'Your time is limited, so don’t waste it living someone else’s life. — Steve Jobs',
-			'Doubt kills more dreams than failure ever will. — Suzy Kassem',
-			'The harder you fall, the higher you bounce.', 
-			'Success is the sum of small efforts, repeated day in and day out. — Robert Collier',
-			'Opportunities don’t happen, you create them. — Chris Grosser',
-			'The only place where success comes before work is in the dictionary. — Vidal Sassoon',
-			'You don’t have to be great to start, but you have to start to be great. — Zig Ziglar',
-			'It always seems impossible until it’s done. — Nelson Mandela',
-			'Don’t limit your challenges. Challenge your limits.',
-			'Hustle in silence and let your success make the noise.', 
-			'Turn your wounds into wisdom. — Oprah Winfrey',
-			'Go the extra mile. It’s never crowded. — Wayne Dyer',
-			'Success is liking yourself, liking what you do, and liking how you do it. — Maya Angelou',
-			'What you get by achieving your goals is not as important as what you become by achieving your goals. — Zig Ziglar'.
-			'Stay committed to your decisions, but stay flexible in your approach. — Tony Robbins'
+			'Success doesn’t just find you. You have to go out and get it. — Unknown',
+			'The harder you work for something, the greater you will feel when you achieve it. — Unknown',
+			'Dream bigger. Do bigger. — Unknown',
+			'Don’t stop when you’re tired. Stop when you’re done. — Unknown',
+			'Wake up with determination. Go to bed with satisfaction. — Unknown',
+			'Do something today that your future self will thank you for. — Unknown',
+			'Little things make big days. Great things take time. Be patient. — Unknown',
+			'It is going to be hard, but hard does not mean impossible. — Unknown',
+			'Push yourself because no one else is going to do it for you. — Unknown',
+			'Great things never come from comfort zones. — Unknown',
+			'Dream it. Believe it. Build it. — Unknown'
 
 		];
 
-
-       function displayRandomQuote() {
+function displayRandomQuote() {
     const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
     const quoteContainer = document.getElementById('quote-container');
     quoteContainer.innerText = quotes[randomQuoteIndex];
@@ -193,3 +186,4 @@ function changeQuote() {
 
 // Run the changeQuote function every 10 seconds
 setInterval(changeQuote, 10000); // Changes every 10 seconds
+
