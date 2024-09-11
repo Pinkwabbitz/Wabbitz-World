@@ -1,12 +1,14 @@
 
 // Word generation logic
+
+
 document.getElementById('get-word-btn').addEventListener('click', generateWord);
 
 let displayedWords = []; // Array to track displayed words
 
-	function generateWord() {
+function generateWord() {
     const words = [
-				{ word: 'Ephemeral', ipa: 'e·phem·er·al', definition: 'lasting for a very short time.', sentence: 'The beauty of the sunset was ephemeral, fading within minutes.' },
+       { word: 'Ephemeral', ipa: 'e·phem·er·al', definition: 'lasting for a very short time.', sentence: 'The beauty of the sunset was ephemeral, fading within minutes.' },
 				{ word: 'Serendipity', ipa: 'se·ren·dip·i·ty', definition: 'the occurrence and development of events by chance in a happy or beneficial way.', sentence: 'It was serendipity that led them to find the lost treasure.' },
 				{ word: 'Petrichor', ipa: 'pe·tri·chor', definition: 'a pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather.', sentence: 'The petrichor after the rain was refreshing.' },
 				{ word: 'Halcyon', ipa: 'hal·cy·on', definition: 'denoting a period of time in the past that was idyllically happy and peaceful.', sentence: 'She often reminisced about the halcyon days of her childhood.' },
@@ -56,12 +58,13 @@ let displayedWords = []; // Array to track displayed words
 				{ word: 'Convivial', ipa: 'kuhn-viv-ee-uhl', definition: 'friendly, sociable, and enjoyable.', sentence: 'The convivial atmosphere of the party made everyone feel welcome.' },
 				{ word: 'Voracious', ipa: 'vaw-ray-shuhs', definition: 'wanting or devouring great quantities of food; having a very eager approach to a particular activity.', sentence: 'His voracious appetite for reading meant he always had a book in hand.' },
 				{ word: 'Pernicious', ipa: 'per-nish-uhs', definition: 'having a harmful effect, especially in a gradual or subtle way.', sentence: 'The pernicious influence of social media can affect mental health over time.' }
-		];
-
+		]; // Your array of words
+    
 
     // Check if the word limit has been reached
     if (displayedWords.length >= 10) {
-        alert("Try using your words today in a sentence and come back tomorrow for more!");
+        const remainingHours = getRemainingHoursUntilMidnight();
+        alert(`Try using your words today in a sentence and come back tomorrow for more! Reset will happen in ${remainingHours} hours.`);
         return;
     }
 
@@ -91,8 +94,6 @@ function speakWord(word) {
     const speech = new SpeechSynthesisUtterance(word);
     speechSynthesis.speak(speech);
 }
-(speakWord)
-
 
 // Function to reset words at midnight
 function resetWordsAtMidnight() {
@@ -101,12 +102,25 @@ function resetWordsAtMidnight() {
 
     if (lastResetDate !== currentDate) {
         // If the date has changed, reset the displayed words
-        displayedWords = [];
+        displayedWords = []; // Initialize an empty array for displayed words
         localStorage.setItem('displayedWords', JSON.stringify(displayedWords)); // Clear displayed words
         localStorage.setItem('lastResetDate', currentDate); // Update the last reset date in local storage
-        console.log('Words have been reset at midnight.');
     }
 }
+
+// Calculate the remaining hours until midnight
+function getRemainingHoursUntilMidnight() {
+    const now = new Date();
+    const midnight = new Date();
+    midnight.setHours(24, 0, 0, 0); // Set time to midnight
+
+    const diff = midnight - now; // Time difference in milliseconds
+    const hoursLeft = Math.floor(diff / (1000 * 60 * 60)); // Convert milliseconds to hours
+    return hoursLeft;
+}
+
+// Check every minute if the date has changed
+setInterval(resetWordsAtMidnight, 60000); // 60,000 milliseconds = 1 minute
 
 // Load displayed words from local storage on page load
 window.onload = function() {
@@ -116,6 +130,7 @@ window.onload = function() {
     }
     resetWordsAtMidnight(); // Check if words need to be reset
 };
+
 
 // Quote rotation logic
 const quotes = [
