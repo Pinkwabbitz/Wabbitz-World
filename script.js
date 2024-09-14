@@ -94,6 +94,7 @@ function speakWord(word) {
     const speech = new SpeechSynthesisUtterance(word);
     speechSynthesis.speak(speech);
 }
+speakWord()
 
 // Function to reset words at midnight
 function resetWordsAtMidnight() {
