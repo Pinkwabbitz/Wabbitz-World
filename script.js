@@ -96,32 +96,7 @@ function speakWord(word) {
 }
 speakWord()
 
-// Function to reset words at midnight
-function resetWordsAtMidnight() {
-    const currentDate = new Date().toDateString(); // Get the current date as a string
-    const lastResetDate = localStorage.getItem('lastResetDate'); // Retrieve the last reset date from local storage
 
-    if (lastResetDate !== currentDate) {
-        // If the date has changed, reset the displayed words
-        displayedWords = []; // Initialize an empty array for displayed words
-        localStorage.setItem('displayedWords', JSON.stringify(displayedWords)); // Clear displayed words
-        localStorage.setItem('lastResetDate', currentDate); // Update the last reset date in local storage
-    }
-}
-
-// Calculate the remaining hours until midnight
-function getRemainingHoursUntilMidnight() {
-    const now = new Date();
-    const midnight = new Date();
-    midnight.setHours(24, 0, 0, 0); // Set time to midnight
-
-    const diff = midnight - now; // Time difference in milliseconds
-    const hoursLeft = Math.floor(diff / (1000 * 60 * 60)); // Convert milliseconds to hours
-    return hoursLeft;
-}
-
-// Check every minute if the date has changed
-setInterval(resetWordsAtMidnight, 60000); // 60,000 milliseconds = 1 minute
 
 // Load displayed words from local storage on page load
 window.onload = function() {
