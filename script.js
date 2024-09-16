@@ -4,11 +4,8 @@
 
 document.getElementById('get-word-btn').addEventListener('click', generateWord);
 
-let displayedWords = []; // Array to track displayed words
-
-function generateWord() {
-    const words = [
-       { word: 'Ephemeral', ipa: 'e·phem·er·al', definition: 'lasting for a very short time.', sentence: 'The beauty of the sunset was ephemeral, fading within minutes.' },
+let displayedWords = [
+				{ word: 'Ephemeral', ipa: 'e·phem·er·al', definition: 'lasting for a very short time.', sentence: 'The beauty of the sunset was ephemeral, fading within minutes.' },
 				{ word: 'Serendipity', ipa: 'se·ren·dip·i·ty', definition: 'the occurrence and development of events by chance in a happy or beneficial way.', sentence: 'It was serendipity that led them to find the lost treasure.' },
 				{ word: 'Petrichor', ipa: 'pe·tri·chor', definition: 'a pleasant smell that frequently accompanies the first rain after a long period of warm, dry weather.', sentence: 'The petrichor after the rain was refreshing.' },
 				{ word: 'Halcyon', ipa: 'hal·cy·on', definition: 'denoting a period of time in the past that was idyllically happy and peaceful.', sentence: 'She often reminisced about the halcyon days of her childhood.' },
@@ -57,9 +54,12 @@ function generateWord() {
 				{ word: 'Sardonic', ipa: 'sahr-don-ik', definition: 'grimly mocking or cynical.', sentence: 'His sardonic remarks often masked his true feelings.' },
 				{ word: 'Convivial', ipa: 'kuhn-viv-ee-uhl', definition: 'friendly, sociable, and enjoyable.', sentence: 'The convivial atmosphere of the party made everyone feel welcome.' },
 				{ word: 'Voracious', ipa: 'vaw-ray-shuhs', definition: 'wanting or devouring great quantities of food; having a very eager approach to a particular activity.', sentence: 'His voracious appetite for reading meant he always had a book in hand.' },
-				{ word: 'Pernicious', ipa: 'per-nish-uhs', definition: 'having a harmful effect, especially in a gradual or subtle way.', sentence: 'The pernicious influence of social media can affect mental health over time.' }
-		]; // Your array of words
-    
+				{ word: 'Pernicious', ipa: 'per-nish-uhs', definition: 'having a harmful effect, especially in a gradual or subtle way.', sentence: 'The pernicious influence of social media can affect mental health over time.' }]; // Array to track displayed words
+
+function generateWord() {
+    const words = [
+        
+    ];
 
     // Check if the word limit has been reached
     if (displayedWords.length >= 10) {
@@ -85,8 +85,9 @@ function generateWord() {
     // Add the word to the displayedWords array
     displayedWords.push(word.word);
 
-    // Save the displayed words to local storage for persistence
+    // Save the displayed words and current date to local storage
     localStorage.setItem('displayedWords', JSON.stringify(displayedWords));
+    localStorage.setItem('lastDate', new Date().toDateString());
 }
 
 // Function to speak the word
@@ -96,21 +97,33 @@ function speakWord(word) {
 }
 speakWord()
 
-
-
 // Load displayed words from local storage on page load
 window.onload = function() {
     const savedWords = JSON.parse(localStorage.getItem('displayedWords'));
-    if (savedWords) {
+    const savedDate = localStorage.getItem('lastDate');
+    const today = new Date().toDateString();
+
+    // If the date has changed, reset the displayed words
+    if (savedDate !== today) {
+        displayedWords = []; // Reset the words
+        localStorage.setItem('lastDate', today); // Update the last date to today
+        localStorage.removeItem('displayedWords'); // Clear stored words
+    } else if (savedWords) {
         displayedWords = savedWords;
     }
-    resetWordsAtMidnight(); // Check if words need to be reset
 };
 
+// Function to calculate hours remaining until midnight
+function getRemainingHoursUntilMidnight() {
+    const now = new Date();
+    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
+    const hoursUntilMidnight = Math.floor((midnight - now) / (1000 * 60 * 60));
+    return hoursUntilMidnight;
+}
 
 // Quote rotation logic
 const quotes = [
-			'Life is what happens when you’re busy making other plans.',
+    	'Life is what happens when you’re busy making other plans.',
 			'The only limit to our realization of tomorrow is our doubts of today.',
 			'Success is not final, failure is not fatal: It is the courage to continue that counts.',
 			'Do not wait to strike till the iron is hot; but make it hot by striking.',
@@ -146,8 +159,7 @@ const quotes = [
 			'Push yourself because no one else is going to do it for you. — Unknown',
 			'Great things never come from comfort zones. — Unknown',
 			'Dream it. Believe it. Build it. — Unknown'
-
-		];
+];
 
 function displayRandomQuote() {
     const randomQuoteIndex = Math.floor(Math.random() * quotes.length);
@@ -177,4 +189,5 @@ function changeQuote() {
 
 // Run the changeQuote function every 10 seconds
 setInterval(changeQuote, 10000); // Changes every 10 seconds
+
 
