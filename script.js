@@ -56,18 +56,9 @@ let displayedWords = [
 				{ word: 'Voracious', ipa: 'vaw-ray-shuhs', definition: 'wanting or devouring great quantities of food; having a very eager approach to a particular activity.', sentence: 'His voracious appetite for reading meant he always had a book in hand.' },
 				{ word: 'Pernicious', ipa: 'per-nish-uhs', definition: 'having a harmful effect, especially in a gradual or subtle way.', sentence: 'The pernicious influence of social media can affect mental health over time.' }]; // Array to track displayed words
 
-function generateWord() {
-    const words = [
-        
-    ];
+;
 
-    // Check if the word limit has been reached
-    if (displayedWords.length >= 10) {
-        const remainingHours = getRemainingHoursUntilMidnight();
-        alert(`Try using your words today in a sentence and come back tomorrow for more! Reset will happen in ${remainingHours} hours.`);
-        return;
-    }
-
+   
     // Generate a random word
     const randomIndex = Math.floor(Math.random() * words.length);
     const word = words[randomIndex];
