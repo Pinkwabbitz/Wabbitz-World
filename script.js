@@ -112,13 +112,6 @@ window.onload = function() {
     setInterval(changeQuote, 10000); // Changes every 10 seconds
 };
 
-// Function to calculate hours remaining until midnight
-function getRemainingHoursUntilMidnight() {
-    const now = new Date();
-    const midnight = new Date(now.getFullYear(), now.getMonth(), now.getDate() + 1);
-    const hoursUntilMidnight = Math.ceil((midnight - now) / (1000 * 60 * 60));
-    return hoursUntilMidnight;
-}
 
 // Quote rotation logic
 const quotes = [
