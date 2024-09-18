@@ -57,13 +57,6 @@ const words = [
 
 let displayedWords = []; // Array to track displayed words
 
-function generateWord() {
-    // Check if the word limit has been reached
-    if (displayedWords.length >= 10) {
-        const remainingHours = getRemainingHoursUntilMidnight();
-        alert(`Try using your words today in a sentence and come back tomorrow for more! Reset will happen in ${remainingHours} hours.`);
-        return;
-    }
 
     // Generate a random word that hasn't been displayed yet
     let remainingWords = words.filter(word => !displayedWords.includes(word.word));
