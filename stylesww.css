@@ -426,11 +426,6 @@
         font-size: 0.9rem;
     }
 
-    /* Reduce logo size */
-    .logo {
-        max-width: 60px;
-    }
-
     /* Stack content in the footer */
     .foot {
         flex-direction: column;
@@ -449,6 +444,21 @@
     /* Scroll container block adjustments */
     .scroll-container .block {
         width: 80%;
+    }
+	.header-top {
+        flex-direction: column;
+        align-items: center;
+    }
+    
+    .logo {
+        position: static;
+        margin: 0 auto 10px; /* Center with spacing */
+        max-width: 80px;
+    }
+    
+    h1 {
+        margin-top: 0;
+        font-size: 2rem; /* Smaller font for smaller screens */
     }
 }
 
