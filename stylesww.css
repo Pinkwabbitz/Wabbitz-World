@@ -395,7 +395,17 @@
 		}
 
 	@media (max-width: 480px) {
-			
+			 .header-top {
+			flex-direction: column;
+		}
+
+		.header-top img {
+			max-width: 80px; /* Further reduce size if necessary */
+		}
+			.block {
+				 flex: 0 0 50%; /* 2 items per row on small screens */
+			}
+		}
 			.company {
 				flex-basis: 100%; /* Show 1 item per row on small screens */
 		    }
