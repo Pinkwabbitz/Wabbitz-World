@@ -1,0 +1,425 @@
+@charset "UTF-8";
+/* CSS Document */
+
+		html {
+			font-size: 20px;
+			font-family: "Poppins", Impact, Haettenschweiler, "Franklin Gothic Bold", "Arial Black", "sans-serif", fatface;
+		}
+		
+		
+		body {
+			display: block;
+			width: 100%;
+			min-height: 500px;
+			text-align: center;
+			margin: 0 auto;
+			padding-bottom: 10px;
+			
+			
+		}
+		form {
+			display: flex;
+			flex-direction: column;
+			gap: 1px;
+			padding-bottom: 10px;
+		}
+
+		input, textarea, button {
+			width: 100%;
+
+			font-size: 1rem;
+			border: 1px solid #ddd;
+			border-radius: 4px;
+		}
+
+		button {
+			background-color: #000;
+			color: #fff;
+			cursor: pointer;
+			transition: background-color 0.3s ease;
+			margin: 10px auto;
+		}
+
+		button:hover {
+			background-color: #333;
+		}
+
+		p {
+			display: inline-block;
+			text-align: center;
+			padding-left: 20px;
+			padding-right: 20px;
+		}
+		
+		.mission {
+			text-align: center;
+			justify-content: center;
+			background-color: black;
+			color: white;
+			
+		}
+		
+		.header {
+			display: flex;
+			justify-content: flex-start;
+			flex-direction: column;
+			align-items: center;
+			width: 100%;
+		}
+		.header-top {
+			display: flex;
+			justify-content: center;
+			align-items: center;
+			width: 100%;
+			position: relative;
+		}
+
+		.title-container {
+			flex: 1;
+			text-align: center;
+		}
+
+		.header-top h1 {
+			margin: 0;
+		}
+
+		.logo {
+			position: absolute;
+			right: 2rem; /* Adjust as needed */
+			top: 50%;
+			transform: translateY(-50%);
+			max-width: 100px;
+		}
+
+		
+		a {
+			text-decoration: none;
+			color: white;
+			font-style: italic;
+			font-weight: 500;
+			text-shadow: -2px 1px 5px rgba(0, 0, 0, 0.2);
+		}
+		
+		
+		
+		.nav-bar {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			margin-top: 10px;
+}
+		.nav-bar a {
+			color: black;
+		}
+		
+		#welcome {
+			align-content: center;
+		}
+		
+		.modal {
+			display: none; /* Hidden by default */
+			position: fixed;
+			z-index: 1000;
+			padding-top: 60px;
+			left: 0;
+			top: 0;
+			width: 100%;
+			height: 100%;
+			overflow: auto;
+			background-color: rgba(0, 0, 0, 0.8); /* Black background with opacity */
+		}
+
+		.modal-content {
+			margin: auto;
+			display: block;
+			max-width: 500px;
+			max-height: 500px;
+			border-radius: 8px;
+		}
+
+		#caption {
+			margin: auto;
+			display: block;
+			width: 80%;
+			max-width: 700px;
+			text-align: center;
+			color: white;
+			padding: 10px 0;
+		}
+
+		.close {
+			position: absolute;
+			top: 20px;
+			right: 30px;
+			color: white;
+			font-size: 40px;
+			font-weight: bold;
+			cursor: pointer;
+		}
+
+		.close:hover,
+		.close:focus {
+			color: #bbb;
+			text-decoration: none;
+		}
+
+		.companies {
+			display: flex;
+			justify-content: space-around;
+			flex-wrap: wrap;
+			width: 100%;	
+		}	
+		
+		img {
+			width: 100%;
+			max-width: 150px;
+		}
+		
+		
+		h2 {
+			font-weight: 700;
+			font-size: 2.5rem;
+			
+		}
+		
+		h1 {
+			font-weight: 700;
+			font-size: 3rem;
+		}
+		
+		h4 {
+			font-weight: 400;
+			color: white;
+			font-size: 1.5rem;
+		}
+		
+		h3 {
+			color: white;
+			font-style: italic;
+			font-weight: 500;
+			text-shadow: -2px 1px 5px rgba(0, 0, 0, 0.2);
+		}
+		
+		h5 {
+			color: black;
+		}
+		
+		.company {
+		 	flex-basis: 25%; /* Each item takes 25% of the container width */
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			margin: 1rem 0;
+		}
+		
+		.foot a {
+			color: black;
+		}
+		
+		.company img {
+			border-radius: 50%;
+			overflow: hidden;
+			max-width: 100px; /* Adjust as needed */
+    		margin-bottom: 0.5rem; /* Spacing between image and heading */
+		}
+		
+		
+		.portfolio {
+			display: block;
+			width: 100%;
+			background-image: url("dielobackground.png");
+			background-size: cover;
+			background-position: center;
+			background-repeat: no-repeat;
+			height: 20rem;
+			margin-bottom: 1rem;
+			text-align: center;
+			
+            }
+		
+		.content h2 {
+			justify-content: center;
+			align-items: center;
+			color: white;
+			text-align: center;
+		}
+		
+		.content {
+			display: flex;               /* Use flexbox layout */
+			flex-direction: column;      /* Stack items vertically */
+			align-items: center;         /* Center items horizontally */
+			justify-content: center;      /* Center items vertically */
+			text-align: center;          /* Center text */
+			height: 100%;                /* Ensure the div has height */
+			max-width: 100%;
+			min-height: 250px;
+			margin: 0 auto;
+			padding: 10px 0;            /* Vertical padding */
+		}
+		
+		.content p {
+			display: flex;
+			max-width: 100%;
+			min-height: 250px;
+			text-align: center;
+			margin: 0% auto;
+			justify-content: center;
+			align-content: center;
+			align-items: center;
+			color: white;
+			font-size: 2rem;
+			text-shadow: -2px 1px 5px rgba(0, 0, 0, 0.2);
+			font-style: italic;
+			font-weight: 500;
+		}
+			
+		#bg {
+			position: relative;
+			width: 100vw; /* Full viewport width */
+			height: 50vh; /* Full viewport height */
+			overflow: hidden;
+		}
+
+		#bg video {
+			position: absolute;
+			top: 50%;
+			left: 50%;
+			width: 100vw; /* Full width to scale with screen */
+			height: 50vh; /* Full height to scale with screen */
+			object-fit: cover; /* Maintain aspect ratio while covering container */
+			transform: translate(-50%, -50%); /* Center the video */
+		}
+
+		#bg p {
+			position: relative;
+			color: white;
+			text-align: center;
+			font-size: 2rem;
+			text-shadow: -2px 1px 5px rgba(0, 0, 0, 0.2);
+		}
+
+		
+		.footer a {
+			color: black;
+		}
+		
+		 .foot {
+			display: flex;
+			justify-content: center;
+			width: 100%;
+			margin-top: 20px;
+		}
+		
+		.scroll-container {
+			display: flex;              /* Set items in a row */
+			overflow-x: auto;           /* Horizontal scroll */
+			scroll-snap-type: x mandatory; /* Snap to elements while scrolling */
+			padding: 10px;              /* Optional padding */
+			gap: 10px;                  /* Space between blocks */
+		}
+
+		.services {
+			display: flex;
+			flex-wrap: wrap; /* Allows items to move to the next row on smaller screens */
+			width: 100%;
+			min-height: 400px;
+			max-height: 750px;
+			margin: 0 auto;
+			box-sizing: border-box;
+			justify-content: center; /* Center content horizontally */
+		}
+
+		.service-item img {
+			width: 100%; /* allows it to scale with its container */
+			max-width: 250px; /* sets an upper limit */
+			height: auto; /* maintains aspect ratio */
+		}
+
+		
+		.service-item {
+			flex: 1; /* Take up equal space */
+			margin: 10px; /* 10px margin around each */
+			max-height: 100%; /* Constrain height to the parent */
+			background-color: #f0f0f0; /* Optional: for visual differentiation */
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			text-align: center;
+			box-sizing: border-box;
+			border-radius: 2%;
+		}
+
+		.service-item p {
+			font-size: 2rem;
+			font-family: "Poppins",Gotham, "Helvetica Neue", Helvetica, Arial, "sans-serif";
+		}
+
+		
+		
+		.block {
+			flex: 0 0 16.66%; /* 6 items per row on large screens */
+			max-width: 200px;
+			min-width: 150px;
+			height: 200px;
+			display: flex;
+			align-items: center;
+			justify-content: center;
+			font-size: 1.5em;
+			scroll-snap-align: start;
+		}
+
+		
+		.block img {
+			width: 100%;
+			height: 100%;
+			max-width: 200px; /* Ensures the image does not exceed block width */
+			max-height: 100%; /* Ensures the image does not exceed block height */
+			object-fit: cover; /* Makes the image cover the entire container without distortion */
+			border-radius: 8px; /* Optional: rounded corners */
+		}
+		 
+	
+		
+		
+		@media (max-width: 600px) {
+			 .header-top {
+			flex-direction: column;
+		}
+
+		.header-top img {
+			max-width: 80px; /* Further reduce size if necessary */
+		}
+			.block {
+				 flex: 0 0 50%; /* 2 items per row on small screens */
+			}
+		}
+
+		@media (max-width: 480px) {
+			.company {
+				flex-basis: 100%; /* Show 1 item per row on small screens */
+			}
+		}
+		
+		@media (max-width: 768px) {
+			.portfolio h4 {
+				font-size: 1.2rem; /* Adjust font size for better readability */
+				padding: 0 10px; /* Add horizontal padding to prevent overflow */
+				}
+			
+			.logo {
+				position: static; /* Allows logo to follow normal flow */
+				margin: 1rem auto; /* Centers logo with margin */
+				display: block; /* Ensures it stays centered */
+				transform: none; /* Resets the transform */
+				max-width: 80px; /* Scales down the logo on smaller screens */
+			}
+			.service-item {
+				flex: 1 1 100%; /* Full width on small screens */
+				margin: 5px;
+			}
+
+			.service-item img {
+				max-width: 400px; /* Reduce max-width on smaller screens */
+			}
+		}
+		
