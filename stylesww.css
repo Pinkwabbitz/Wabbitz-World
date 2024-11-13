@@ -419,7 +419,7 @@
         font-size: 16px;
     }
 
-    h1 { font-size: 2rem; }
+   
     h2 { font-size: 1.8rem; }
 
     input, textarea, button {
@@ -459,6 +459,19 @@
     h1 {
         margin-top: 0;
         font-size: 2rem; /* Smaller font for smaller screens */
+    }
+	 .services {
+        display: flex;
+        flex-direction: row; /* Horizontal layout */
+        overflow-x: auto; /* Enable horizontal scrolling */
+        gap: 10px; /* Add space between service items */
+        padding: 10px;
+    }
+    
+    .service-item {
+        flex: 0 0 100%; /* Full width for each item */
+        max-width: 100%;
+        margin: 5px auto; /* Center and add spacing */
     }
 }
 
