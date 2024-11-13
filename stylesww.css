@@ -394,10 +394,67 @@
 			}
 		}
 
-		@media (max-width: 480px) {
+	@media (max-width: 480px) {
 			.company {
 				flex-basis: 100%; /* Show 1 item per row on small screens */
 			}
+			 html {
+			        font-size: 16px; /* Reduce base font size */
+			    }
+			    
+			 h1 {
+			        font-size: 2rem; /* Smaller heading */
+			    }
+			    
+			  h2 {
+			        font-size: 1.8rem;
+			    }
+			
+			    /* Adjust form elements */
+			    input, textarea, button {
+			        font-size: 0.9rem;
+			    }
+			
+			    /* Flex containers in column layout */
+			    .header-top {
+			        flex-direction: column;
+			        align-items: center;
+			    }
+
+    .logo {
+        max-width: 60px;
+    }
+
+    .nav-bar p, .footer a {
+        font-size: 0.9rem;
+    }
+
+    /* Image container adjustments */
+    .block {
+        flex: 0 0 45%; /* 2 items per row on small screens */
+        margin: 5px auto;
+    }
+    
+    .scroll-container .block {
+        width: 80%; /* Reduce image container width */
+    }
+
+    /* Footer adjustments */
+    .foot {
+        flex-direction: column;
+    }
+    
+    /* Reduce video dimensions */
+    #bg video {
+        height: 30vh;
+    }
+    
+    /* Reduce margin/padding */
+    body, .content, .footer {
+        padding: 5px;
+    }
+}
+
 		}
 		
 		@media (max-width: 768px) {
