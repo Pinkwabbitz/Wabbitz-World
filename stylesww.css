@@ -395,9 +395,7 @@
 		}
 
 	@media (max-width: 480px) {
-			body {
-	    		    background-color: yellow; /* Just to test */
-		    }
+			
 			.company {
 				flex-basis: 100%; /* Show 1 item per row on small screens */
 		    }
