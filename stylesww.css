@@ -381,140 +381,93 @@
 	
 		
 		
-		@media (max-width: 600px) {
-			 .header-top {
-			flex-direction: column;
-		}
+		/* General mobile-first adjustments */
+@media (max-width: 768px) {
+    .header-top {
+        flex-direction: column; /* Stack elements vertically */
+        align-items: center;
+    }
 
-		.header-top img {
-			max-width: 80px; /* Further reduce size if necessary */
-		}
-			.block {
-				 flex: 0 0 50%; /* 2 items per row on small screens */
-			}
-		}
+    .logo {
+        position: static;
+        margin: 1rem auto;
+        display: block;
+        transform: none;
+        max-width: 80px;
+    }
 
-	@media (max-width: 480px) {
-			 .header-top {
-			flex-direction: column;
-		}
+    .services {
+        flex-direction: column;
+        align-items: center;
+    }
 
-		.header-top img {
-			max-width: 80px; /* Further reduce size if necessary */
-		}
-			.block {
-				 flex: 0 0 50%; /* 2 items per row on small screens */
-			}
-		}
-			.company {
-				flex-basis: 100%; /* Show 1 item per row on small screens */
-		    }
-			 html {
-			        font-size: 16px; /* Reduce base font size */
-			    }
-			    
-			 h1 {
-			        font-size: 2rem; /* Smaller heading */
-			    }
-			    
-			  h2 {
-			        font-size: 1.8rem;
-			    }
-			
-			    /* Adjust form elements */
-			    input, textarea, button {
-			        font-size: 0.9rem;
-			    }
-			
-			    /* Flex containers in column layout */
-			    .header-top {
-			        flex-direction: column;
-			        align-items: center;
-			    }
+    .service-item {
+        flex: 1 1 100%; /* Full width on small screens */
+        margin: 5px 0;
+    }
 
-   .logo {
+    /* Other adjustments */
+    .portfolio h4 {
+        font-size: 1.2rem;
+        padding: 0 10px;
+    }
+}
+
+@media (max-width: 600px) {
+    /* Smaller font adjustments */
+    html {
+        font-size: 16px;
+    }
+
+    h1 { font-size: 2rem; }
+    h2 { font-size: 1.8rem; }
+
+    input, textarea, button {
+        font-size: 0.9rem;
+    }
+
+    /* Reduce logo size */
+    .logo {
         max-width: 60px;
     }
 
-    /* Additional adjustments for very small screens */
-    .service-item p {
-        font-size: 1.5rem; /* Adjust font size for readability */
+    /* Stack content in the footer */
+    .foot {
+        flex-direction: column;
     }
-    
+
+    /* Reduce video dimensions */
+    #bg video {
+        height: 30vh;
+    }
+
+    /* Adjust padding for smaller devices */
+    body, .content, .footer {
+        padding: 5px;
+    }
+
+    /* Scroll container block adjustments */
     .scroll-container .block {
-        width: 80%; /* Reduce image container width */
+        width: 80%;
+    }
+}
+
+@media (max-width: 480px) {
+    /* Even smaller adjustments for extra-small screens */
+    .company {
+        flex-basis: 100%;
     }
 
     .nav-bar p, .footer a {
         font-size: 0.9rem;
     }
 
-    /* Image container adjustments */
     .block {
-        flex: 0 0 45%; /* 2 items per row on small screens */
+        flex: 0 0 45%;
         margin: 5px auto;
     }
-    
-    .scroll-container .block {
-        width: 80%; /* Reduce image container width */
-    }
 
-    /* Footer adjustments */
-    .foot {
-        flex-direction: column;
-    }
-    
-    /* Reduce video dimensions */
-    #bg video {
-        height: 30vh;
-    }
-    
-    /* Reduce margin/padding */
-    body, .content, .footer {
-        padding: 5px;
+    .service-item p {
+        font-size: 1.5rem;
     }
 }
-
-		}
-		
-		@media (max-width: 768px) {
-			.portfolio h4 {
-				font-size: 1.2rem; /* Adjust font size for better readability */
-				padding: 0 10px; /* Add horizontal padding to prevent overflow */
-				}
-			
-			
-    /* Logo wraps onto the next line */
-    .header-top {
-        flex-direction: column; /* Stack header elements vertically */
-    }
-
-    .logo {
-        position: static;
-        margin: 1rem auto; /* Center it with margin */
-        display: block;
-        transform: none;
-        max-width: 80px;
-    }
-
-    /* Stack .service-item elements */
-    .services {
-        flex-direction: column; /* Arrange items vertically */
-    }
-
-    .service-item {
-        flex: 1 1 100%; /* Full width on small screens */
-        margin: 5px 0;
-        max-width: 100%; /* Make sure it takes full width */
-    }
-
-			.service-item {
-				flex: 1 1 100%; /* Full width on small screens */
-				margin: 5px;
-			}
-
-			.service-item img {
-				max-width: 400px; /* Reduce max-width on smaller screens */
-			}
-		}
-		
