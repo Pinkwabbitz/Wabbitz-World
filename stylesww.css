@@ -432,8 +432,17 @@
 			        align-items: center;
 			    }
 
-    .logo {
+   .logo {
         max-width: 60px;
+    }
+
+    /* Additional adjustments for very small screens */
+    .service-item p {
+        font-size: 1.5rem; /* Adjust font size for readability */
+    }
+    
+    .scroll-container .block {
+        width: 80%; /* Reduce image container width */
     }
 
     .nav-bar p, .footer a {
@@ -474,13 +483,31 @@
 				padding: 0 10px; /* Add horizontal padding to prevent overflow */
 				}
 			
-			.logo {
-				position: static; /* Allows logo to follow normal flow */
-				margin: 1rem auto; /* Centers logo with margin */
-				display: block; /* Ensures it stays centered */
-				transform: none; /* Resets the transform */
-				max-width: 80px; /* Scales down the logo on smaller screens */
-			}
+			
+    /* Logo wraps onto the next line */
+    .header-top {
+        flex-direction: column; /* Stack header elements vertically */
+    }
+
+    .logo {
+        position: static;
+        margin: 1rem auto; /* Center it with margin */
+        display: block;
+        transform: none;
+        max-width: 80px;
+    }
+
+    /* Stack .service-item elements */
+    .services {
+        flex-direction: column; /* Arrange items vertically */
+    }
+
+    .service-item {
+        flex: 1 1 100%; /* Full width on small screens */
+        margin: 5px 0;
+        max-width: 100%; /* Make sure it takes full width */
+    }
+
 			.service-item {
 				flex: 1 1 100%; /* Full width on small screens */
 				margin: 5px;
